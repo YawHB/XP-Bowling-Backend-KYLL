@@ -1,13 +1,11 @@
-package kea.exercises.xpbowlingbackendkyll.model.sales_related;
+package kea.exercises.xpbowlingbackendkyll.model.sale;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,4 +18,8 @@ public class Sale {
     private Timestamp saleDate;
 
     private double totalPrice;
+    @OneToMany
+    @JoinColumn(name = "sale_id")
+    private List<SaleConsumable> saleConsumables;
+
 }

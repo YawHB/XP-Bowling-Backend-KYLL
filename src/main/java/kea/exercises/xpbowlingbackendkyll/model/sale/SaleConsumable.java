@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.model.sales_related;
+package kea.exercises.xpbowlingbackendkyll.model.sale;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,11 +12,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Consumables {
-
+public class SaleConsumable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
-    private int price;
+    private double amount;
+    private double bundlePrice;
+
 }
