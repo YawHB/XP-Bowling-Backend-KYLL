@@ -22,7 +22,8 @@ public class ActivityType {
 
      private int maxCapacity;
 
-    @OneToMany(mappedBy = "activityTypeId")
+    @OneToMany()
+    @JoinColumn(name = "activity_type_id")
      private List<Activity> activities;
 
 }

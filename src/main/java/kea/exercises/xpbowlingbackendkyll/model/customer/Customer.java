@@ -20,7 +20,7 @@ public class Customer {
     private String phone;
 
     @OneToMany()
-    @JoinColumn(name = "CustomerID")
+    @JoinColumn(name = "customer_id")
     private List<Reservation> reservations;
 
 

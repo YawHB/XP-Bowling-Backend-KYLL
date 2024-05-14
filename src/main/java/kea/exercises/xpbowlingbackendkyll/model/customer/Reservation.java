@@ -1,15 +1,16 @@
 package kea.exercises.xpbowlingbackendkyll.model.customer;
 
 import jakarta.persistence.*;
+import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "reservation")
 public class Reservation {
 
     @Id
@@ -17,4 +18,9 @@ public class Reservation {
     private int id;
     private LocalDate ReservationDate;
     private double totalPrice;
+
+
+    @OneToMany()
+    @JoinColumn(name = "reservation_id")
+    private List<ActivityBooking> activityBookings;
 }

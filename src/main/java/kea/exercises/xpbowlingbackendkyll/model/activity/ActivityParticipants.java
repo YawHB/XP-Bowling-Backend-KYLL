@@ -15,6 +15,5 @@ public class ActivityParticipants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int ActivityBookingId;
     private String name;
 }
