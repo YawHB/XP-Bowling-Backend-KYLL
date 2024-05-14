@@ -1,12 +1,11 @@
 package kea.exercises.xpbowlingbackendkyll.model.customer;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +18,10 @@ public class Customer {
     private int id;
     private String name;
     private String phone;
+
+    @OneToMany()
+    @JoinColumn(name = "CustomerID")
+    private List<Reservation> reservations;
 
 
     public Customer(String name, String phone) {
