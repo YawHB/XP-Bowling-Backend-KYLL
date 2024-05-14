@@ -1,6 +1,6 @@
 package kea.exercises.xpbowlingbackendkyll.model.activity;
 import jakarta.persistence.*;
-import kea.exercises.xpbowlingbackendkyll.Type;
+import kea.exercises.xpbowlingbackendkyll.enums.Type;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

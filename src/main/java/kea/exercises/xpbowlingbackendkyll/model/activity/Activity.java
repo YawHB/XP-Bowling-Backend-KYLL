@@ -16,5 +16,10 @@ public class Activity {
 
   private String activityName;
 
+  @ManyToOne()
+  @JoinColumn(name = "activity_id")
+    private ActivityBooking activityBooking;
+
+
 
 }
