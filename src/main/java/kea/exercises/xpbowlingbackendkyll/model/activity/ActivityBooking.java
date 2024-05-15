@@ -25,5 +25,11 @@ public class ActivityBooking {
     @ManyToOne
     private Reservation reservation;
 
-
+    public ActivityBooking(LocalDate startTime, LocalDate endTime, int numberParticipants, Activity activity, Reservation reservation) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.numberParticipants = numberParticipants;
+        this.activity = activity;
+        this.reservation = reservation;
+    }
 }
