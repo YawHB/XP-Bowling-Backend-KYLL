@@ -19,14 +19,7 @@ public class Activity {
   private String activityName;
   @ManyToOne
   private ActivityType activityType;
-/*
-  @ManyToOne( )
-  @JoinColumn(name = "activity_id")
-    private ActivityBooking activityBooking;
 
-  @ManyToOne()
-  private ActivityType activityType;
-*/
 
     public Activity(String activityName, ActivityType activityType) {
         this.activityName = activityName;

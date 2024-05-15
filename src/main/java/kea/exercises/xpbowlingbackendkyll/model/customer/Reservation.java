@@ -18,9 +18,7 @@ public class Reservation {
     private int id;
     private LocalDate ReservationDate;
     private double totalPrice;
+    @ManyToOne
+    private Customer customer;
 
-
-    @OneToMany()
-    @JoinColumn(name = "reservation_id")
-    private List<ActivityBooking> activityBookings;
 }

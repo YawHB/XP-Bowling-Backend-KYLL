@@ -23,15 +23,10 @@ public class ActivityType {
 
      private int maxCapacity;
 
-    @OneToMany()
-    @JoinColumn(name = "activity_type_id")
-     private List<Activity> activities;
-
-    public ActivityType(Type type, double hourlyPrice, int maxCapacity, List<Activity> activities) {
+    public ActivityType(Type type, double hourlyPrice, int maxCapacity) {
         this.type = type;
         this.hourlyPrice = hourlyPrice;
         this.maxCapacity = maxCapacity;
-        this.activities = activities;
     }
 }
 

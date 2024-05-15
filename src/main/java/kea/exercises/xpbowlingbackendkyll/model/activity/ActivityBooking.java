@@ -1,6 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.model.activity;
 
 import jakarta.persistence.*;
+import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,14 +19,11 @@ public class ActivityBooking {
     private int id;
     private LocalDate startTime;
     private LocalDate endTime;
-    @OneToMany()
-    @JoinColumn(name = "activity_booking_id")
-    private List<ActivityParticipants> participants;
+    private int numberParticipants;
+    @ManyToOne
+    private Activity activity;
+    @ManyToOne
+    private Reservation reservation;
 
 
-    public ActivityBooking(LocalDate startTime, LocalDate endTime, List<ActivityParticipants> participants) {
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.participants = participants;
-    }
 }

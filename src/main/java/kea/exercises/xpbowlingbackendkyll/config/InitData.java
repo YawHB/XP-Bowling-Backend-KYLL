@@ -47,13 +47,6 @@ public void run(String... args) throws Exception {
 
     }
 
-    //TODO: Create ActivityBookings
-     /*public void createActivityBookings() {
-        activityBookingRepository.saveAll(activityBookings);
-   }
-
-     */
-
 
 
 
@@ -62,31 +55,31 @@ public void run(String... args) throws Exception {
 List<Activity> activities = new ArrayList<>(){{
             //h1 Bowling Adult
             add(new Activity("Bowlingbane 1", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 2", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 3", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 4", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 5", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 6", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 7", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 8", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 9", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 10", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 11", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 12", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 13", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 14", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 15", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 16", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 17", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 18", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 19", activityTypeRepository.findById(1).get()));
-            add(new Activity("Bowlingban 20", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 2", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 3", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 4", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 5", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 6", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 7", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 8", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 9", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 10", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 11", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 12", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 13", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 14", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 15", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 16", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 17", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 18", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 19", activityTypeRepository.findById(1).get()));
+            add(new Activity("Bowlingbane 20", activityTypeRepository.findById(1).get()));
 
             //h1 Bowling Children
-            add(new Activity("Bowlingban 21", activityTypeRepository.findById(2).get()));
-            add(new Activity("Bowlingban 22", activityTypeRepository.findById(2).get()));
-            add(new Activity("Bowlingban 23", activityTypeRepository.findById(2).get()));
-            add(new Activity("Bowlingban 24", activityTypeRepository.findById(2).get()));
+            add(new Activity("Bowlingbane 21", activityTypeRepository.findById(2).get()));
+            add(new Activity("Bowlingbane 22", activityTypeRepository.findById(2).get()));
+            add(new Activity("Bowlingbane 23", activityTypeRepository.findById(2).get()));
+            add(new Activity("Bowlingbane 24", activityTypeRepository.findById(2).get()));
 
             //h1 Airhockey
             add(new Activity("Airhockeybord 1", activityTypeRepository.findById(3).get()));
@@ -114,18 +107,6 @@ List<Activity> activities = new ArrayList<>(){{
      */
 
 
-    /*List<OrderLine> orderLines = new ArrayList<>() {{
-        add(new OrderLine(product1, 7));
-        add(new OrderLine(product2, 10));
-        add(new OrderLine(product3, 5));
-        add(new OrderLine(product4, 5));
-        add(new OrderLine(product5, 5));
-        add(new OrderLine(product4, 5));
-        add(new OrderLine(product5, 5));
-    }};
-        orderLineRepository.saveAll(orderLines);
-
-     */
 
 }
 
