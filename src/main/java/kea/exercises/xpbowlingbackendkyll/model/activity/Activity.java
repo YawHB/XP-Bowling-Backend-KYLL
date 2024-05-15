@@ -17,14 +17,19 @@ public class Activity {
 
 
   private String activityName;
-
-  @ManyToOne()
+  @ManyToOne
+  private ActivityType activityType;
+/*
+  @ManyToOne( )
   @JoinColumn(name = "activity_id")
     private ActivityBooking activityBooking;
 
+  @ManyToOne()
+  private ActivityType activityType;
+*/
 
-    public Activity(String activityName, ActivityBooking activityBooking) {
+    public Activity(String activityName, ActivityType activityType) {
         this.activityName = activityName;
-        this.activityBooking = activityBooking;
+        this.activityType = activityType;
     }
 }
