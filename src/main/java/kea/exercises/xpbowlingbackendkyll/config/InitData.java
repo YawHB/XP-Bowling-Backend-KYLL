@@ -1,6 +1,8 @@
 package kea.exercises.xpbowlingbackendkyll.config;
 
+import kea.exercises.xpbowlingbackendkyll.enums.Type;
 import kea.exercises.xpbowlingbackendkyll.model.activity.Activity;
+import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
 import kea.exercises.xpbowlingbackendkyll.repository.ActivityRepository;
 import kea.exercises.xpbowlingbackendkyll.repository.ActivityTypeRepository;
@@ -12,11 +14,11 @@ import java.util.List;
 @Component
 public class InitData implements CommandLineRunner {
 
-    //Repository injections :D
+    //H1 Repository injections
     private final ActivityRepository activityRepository;
     private final ActivityTypeRepository activityTypeRepository;
 
-    //TODO Constructor InitData with ActivityRepository injection
+    //H1 Constructor InitData with ActivityRepository injection
     public InitData(ActivityRepository activityRepository,
                     ActivityTypeRepository activityTypeRepository) {
         this.activityRepository = activityRepository;
@@ -26,19 +28,47 @@ public class InitData implements CommandLineRunner {
 
     @Override
 public void run(String... args) throws Exception {
-    createActivities();
+        createActivityTypes();
+        //createActivityBoookings();
+        createActivities();
 
     }
 
 
 
+    //TODO: Create ActivityTypes
+    public void createActivityTypes() {
+        List<ActivityType> activityTypes = new ArrayList<>() {{
+            add(new ActivityType(Type.BOWLING_ADULT, 200.00, 6, new ArrayList<>()));
+            add(new ActivityType(Type.BOWLING_CHILD, 150.00, 6, new ArrayList<>()));
+            add(new ActivityType(Type.AIR_HOCKEY, 100.00, 4, new ArrayList<>()));
+            add(new ActivityType(Type.RESTAURANT, 0.00, 0, new ArrayList<>()));
+        }};
+        activityTypeRepository.saveAll(activityTypes);
+    }
+
+    //TODO: Create ActivityBookings
+     /*public void createActivityBookings() {
+        activityBookingRepository.saveAll(activityBookings);
+   }
+
+     */
+
+
+
+
+    //TODO: Create Activities
     public void createActivities() {
-        //TODO Create activities
+        List<Activity> activities  = new ArrayList<>(){{
+            add(new Activity());
+        }};
+        activityRepository.saveAll(activities);
+        }
 
-    }
 
 
-    //Create activity types
+
+
 
 
 
@@ -58,3 +88,4 @@ public void run(String... args) throws Exception {
      */
 
 }
+

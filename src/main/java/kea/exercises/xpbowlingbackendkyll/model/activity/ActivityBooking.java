@@ -2,6 +2,7 @@ package kea.exercises.xpbowlingbackendkyll.model.activity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class ActivityBooking {
 
     @Id
@@ -21,8 +23,9 @@ public class ActivityBooking {
     private List<ActivityParticipants> participants;
 
 
-
-
-
-
+    public ActivityBooking(LocalDate startTime, LocalDate endTime, List<ActivityParticipants> participants) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.participants = participants;
+    }
 }
