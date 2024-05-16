@@ -16,8 +16,7 @@ public class ReplacementOrder {
     private  String title;
     private double price;
 
-    public ReplacementOrder(int id, String title, double price) {
-        this.id = id;
+    public ReplacementOrder(String title, double price) {
         this.title = title;
         this.price = price;
     }

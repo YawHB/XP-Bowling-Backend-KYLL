@@ -21,8 +21,7 @@ public class Shift {
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public Shift(int id, LocalDate date, LocalTime startTime, LocalTime endTime) {
-        this.id = id;
+    public Shift(LocalDate date, LocalTime startTime, LocalTime endTime) {
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;

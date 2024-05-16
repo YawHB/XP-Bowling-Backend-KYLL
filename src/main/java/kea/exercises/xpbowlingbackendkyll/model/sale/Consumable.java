@@ -19,9 +19,8 @@ public class Consumable {
     private String title;
     private double price;
 
-    public Consumable(String title, int id, double price) {
+    public Consumable(String title, double price) {
         this.title = title;
-        this.id = id;
         this.price = price;
     }
 }

@@ -20,8 +20,7 @@ public class OrderItem {
     @ManyToOne
     private ReplacementOrder replacementOrder;
 
-    public OrderItem(int id, double amount, double totalPrice, LocalDateTime orderTime, StockItem stockItem, ReplacementOrder replacementOrder) {
-        this.id = id;
+    public OrderItem(double amount, double totalPrice, LocalDateTime orderTime, StockItem stockItem, ReplacementOrder replacementOrder) {
         this.amount = amount;
         this.totalPrice = totalPrice;
         this.orderTime = orderTime;

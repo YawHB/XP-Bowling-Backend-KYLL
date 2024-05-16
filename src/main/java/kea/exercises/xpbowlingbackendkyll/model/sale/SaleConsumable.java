@@ -20,8 +20,7 @@ public class SaleConsumable {
     @ManyToOne
     private Consumable consumable;
 
-    public SaleConsumable(int id, double amount, double bundlePrice, Sale sale, Consumable consumable) {
-        this.id = id;
+    public SaleConsumable(double amount, double bundlePrice, Sale sale, Consumable consumable) {
         this.amount = amount;
         this.bundlePrice = bundlePrice;
         this.sale = sale;

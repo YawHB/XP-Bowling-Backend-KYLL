@@ -19,8 +19,7 @@ public class StockItem {
     private String title;
     private double amount;
 
-    public StockItem(int id, String title, double amount) {
-        this.id = id;
+    public StockItem(String title, double amount) {
         this.title = title;
         this.amount = amount;
     }

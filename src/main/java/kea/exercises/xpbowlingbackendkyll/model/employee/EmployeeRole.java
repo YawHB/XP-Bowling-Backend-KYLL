@@ -19,8 +19,7 @@ public class EmployeeRole {
     private int id;
     private EmployeeRoleEnum employeeRole;
 
-    public EmployeeRole(int id, EmployeeRoleEnum employeeRole) {
-        this.id = id;
+    public EmployeeRole(EmployeeRoleEnum employeeRole) {
         this.employeeRole = employeeRole;
     }
 }

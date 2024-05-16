@@ -20,8 +20,7 @@ public class Employee {
     @ManyToOne
     private EmployeeRole employeeRole;
 
-    public Employee(int id, String firstName, String lastName, EmployeeRole employeeRole) {
-        this.id = id;
+    public Employee(String firstName, String lastName, EmployeeRole employeeRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeRole = employeeRole;

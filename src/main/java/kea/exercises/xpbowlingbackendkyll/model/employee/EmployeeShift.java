@@ -19,8 +19,7 @@ public class EmployeeShift {
     @ManyToOne
     private Employee employee;
 
-    public EmployeeShift(int id, Shift shift, Employee employee) {
-        this.id = id;
+    public EmployeeShift(Shift shift, Employee employee) {
         this.shift = shift;
         this.employee = employee;
     }

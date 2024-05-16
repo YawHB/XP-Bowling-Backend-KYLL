@@ -13,6 +13,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Component
@@ -193,40 +194,40 @@ List<Activity> activities = new ArrayList<>(){{
      //h1: Create ActivityBookings
      public void createActivityBoookings() {
          List<ActivityBooking> activityBookings = new ArrayList<>(){{
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour(),  showDateWithHour().plusHours(1),
                      5, activityRepository.findById(1).get(),
                      reservationRepository.findById(1).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour(),  showDateWithHour().plusHours(2),
                      5, activityRepository.findById(24).get(),
                      reservationRepository.findById(1).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour(),  showDateWithHour().plusHours(1),
                      5, activityRepository.findById(25).get(),
                      reservationRepository.findById(1).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour(),  showDateWithHour().plusHours(1),
                      5, activityRepository.findById(31).get(),
                      reservationRepository.findById(1).get()));
 
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(1),  showDateWithHour().plusDays(1).plusHours(1),
                      2, activityRepository.findById(23).get(),
                      reservationRepository.findById(2).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(1),  showDateWithHour().plusDays(1).plusHours(1),
                      2, activityRepository.findById(26).get(),
                      reservationRepository.findById(2).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(1),  showDateWithHour().plusDays(1).plusHours(1),
                      2, activityRepository.findById(32).get(),
                      reservationRepository.findById(2).get()));
 
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
                      3, activityRepository.findById(27).get(),
                      reservationRepository.findById(3).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(2),  showDateWithHour().plusDays(2).plusHours(1),
                      5, activityRepository.findById(33).get(),
                      reservationRepository.findById(3).get()));
 
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(3),  showDateWithHour().plusDays(3).plusHours(1),
                      3, activityRepository.findById(11).get(),
                      reservationRepository.findById(4).get()));
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(3),  showDateWithHour().plusDays(3).plusHours(1),
                      5, activityRepository.findById(22).get(),
                      reservationRepository.findById(4).get()));
          }};

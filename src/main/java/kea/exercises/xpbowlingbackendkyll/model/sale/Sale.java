@@ -17,8 +17,7 @@ public class Sale {
     private Timestamp saleDate;
     private double totalPrice;
 
-    public Sale(int id, Timestamp saleDate, double totalPrice) {
-        this.id = id;
+    public Sale(Timestamp saleDate, double totalPrice) {
         this.saleDate = saleDate;
         this.totalPrice = totalPrice;
     }
