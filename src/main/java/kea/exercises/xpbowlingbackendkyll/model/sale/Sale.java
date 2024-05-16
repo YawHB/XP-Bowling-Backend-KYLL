@@ -14,12 +14,12 @@ public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private Timestamp saleDate;
-
     private double totalPrice;
-    @OneToMany
-    @JoinColumn(name = "sale_id")
-    private List<SaleConsumable> saleConsumables;
 
+    public Sale(int id, Timestamp saleDate, double totalPrice) {
+        this.id = id;
+        this.saleDate = saleDate;
+        this.totalPrice = totalPrice;
+    }
 }

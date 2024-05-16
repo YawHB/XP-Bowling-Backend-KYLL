@@ -99,6 +99,7 @@ public void run(String... args) throws Exception {
             add(new Reservation(LocalDate.now(), 400, customerRepository.findById(1).get()));
             add(new Reservation(LocalDate.now(), 700, customerRepository.findById(2).get()));
             add(new Reservation(LocalDate.now(), 200, customerRepository.findById(3).get()));
+            add(new Reservation(LocalDate.now(), 200, customerRepository.findById(4).get()));
         }};
         reservationRepository.saveAll(reservations);
 
@@ -196,20 +197,38 @@ List<Activity> activities = new ArrayList<>(){{
                      5, activityRepository.findById(1).get(),
                      reservationRepository.findById(1).get()));
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
-                     2, activityRepository.findById(2).get(),
+                     5, activityRepository.findById(24).get(),
+                     reservationRepository.findById(1).get()));
+             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+                     5, activityRepository.findById(25).get(),
+                     reservationRepository.findById(1).get()));
+             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+                     5, activityRepository.findById(31).get(),
+                     reservationRepository.findById(1).get()));
+
+             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+                     2, activityRepository.findById(23).get(),
                      reservationRepository.findById(2).get()));
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
-                     2, activityRepository.findById(2).get(),
+                     2, activityRepository.findById(26).get(),
                      reservationRepository.findById(2).get()));
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
-                     2, activityRepository.findById(3).get(),
+                     2, activityRepository.findById(32).get(),
                      reservationRepository.findById(2).get()));
+
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
-                     3, activityRepository.findById(1).get(),
+                     3, activityRepository.findById(27).get(),
                      reservationRepository.findById(3).get()));
              add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
-                     5, activityRepository.findById(4).get(),
+                     5, activityRepository.findById(33).get(),
                      reservationRepository.findById(3).get()));
+
+             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+                     3, activityRepository.findById(11).get(),
+                     reservationRepository.findById(4).get()));
+             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+                     5, activityRepository.findById(22).get(),
+                     reservationRepository.findById(4).get()));
          }};
             activityBookingRepository.saveAll(activityBookings);
 

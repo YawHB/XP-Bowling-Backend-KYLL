@@ -16,8 +16,9 @@ public class ReplacementOrder {
     private  String title;
     private double price;
 
-    @OneToMany
-    @JoinColumn(name = "replacement_order_id")
-    private List<OrderItem> orderItems;
-
+    public ReplacementOrder(int id, String title, double price) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
 }

@@ -15,5 +15,17 @@ public class OrderItem {
     private double amount;
     private double totalPrice;
     private LocalDateTime orderTime;
+    @ManyToOne
+    private StockItem stockItem;
+    @ManyToOne
+    private ReplacementOrder replacementOrder;
 
+    public OrderItem(int id, double amount, double totalPrice, LocalDateTime orderTime, StockItem stockItem, ReplacementOrder replacementOrder) {
+        this.id = id;
+        this.amount = amount;
+        this.totalPrice = totalPrice;
+        this.orderTime = orderTime;
+        this.stockItem = stockItem;
+        this.replacementOrder = replacementOrder;
+    }
 }

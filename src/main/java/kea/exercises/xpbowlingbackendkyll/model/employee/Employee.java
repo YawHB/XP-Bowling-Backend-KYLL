@@ -17,21 +17,13 @@ public class Employee {
     private int id;
     private String firstName;
     private String lastName;
+    @ManyToOne
+    private EmployeeRole employeeRole;
 
-
-    @ManyToMany()
-    @JoinTable(
-            name = "employee_shift",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "shift_id")
-    )
-    private List<Shift> shifts;
-
-
-
-
-
-
-
-
+    public Employee(int id, String firstName, String lastName, EmployeeRole employeeRole) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeRole = employeeRole;
+    }
 }
