@@ -49,6 +49,7 @@ public class InitData implements CommandLineRunner {
 
     @Override
 public void run(String... args) throws Exception {
+
         createCustomers();
         createReservations();
         createActivityTypes();
@@ -207,6 +208,7 @@ List<Activity> activities = new ArrayList<>(){{
                      5, activityRepository.findById(31).get(),
                      reservationRepository.findById(1).get()));
 
+
              add(new ActivityBooking(showDateWithHour().plusDays(1),  showDateWithHour().plusDays(1).plusHours(1),
                      2, activityRepository.findById(23).get(),
                      reservationRepository.findById(2).get()));
@@ -217,7 +219,7 @@ List<Activity> activities = new ArrayList<>(){{
                      2, activityRepository.findById(32).get(),
                      reservationRepository.findById(2).get()));
 
-             add(new ActivityBooking(LocalDate.now(), LocalDate.now(),
+             add(new ActivityBooking(showDateWithHour().plusDays(2),  showDateWithHour().plusDays(2).plusHours(1),
                      3, activityRepository.findById(27).get(),
                      reservationRepository.findById(3).get()));
              add(new ActivityBooking(showDateWithHour().plusDays(2),  showDateWithHour().plusDays(2).plusHours(1),
@@ -235,5 +237,13 @@ List<Activity> activities = new ArrayList<>(){{
 
    }
 
+    public LocalDateTime showDateWithHour() {
+        LocalDateTime now = LocalDateTime.now();
+
+        LocalDateTime startTime = now.withMinute(0).withSecond(0).withNano(0);
+
+        return startTime;
+
+    }
 }
 
