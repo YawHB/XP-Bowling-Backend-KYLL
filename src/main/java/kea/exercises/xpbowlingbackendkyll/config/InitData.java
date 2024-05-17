@@ -194,6 +194,7 @@ List<Activity> activities = new ArrayList<>(){{
 
      //h1: Create ActivityBookings
      public void createActivityBoookings() {
+
          List<ActivityBooking> activityBookings = new ArrayList<>(){{
              add(new ActivityBooking(showDateWithHour(),  showDateWithHour().plusHours(1),
                      5, activityRepository.findById(1).get(),
