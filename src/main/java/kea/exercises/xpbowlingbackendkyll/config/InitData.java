@@ -19,7 +19,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-@Order(1)
+@Order(1) // This CommandLineRunner will run first
 public class InitData implements CommandLineRunner {
 
     //H1 Repository injections
