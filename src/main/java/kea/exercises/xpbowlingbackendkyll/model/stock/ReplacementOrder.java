@@ -2,6 +2,7 @@ package kea.exercises.xpbowlingbackendkyll.model.stock;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class ReplacementOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +18,8 @@ public class ReplacementOrder {
     private  String title;
     private double price;
 
-    @OneToMany
-    @JoinColumn(name = "replacement_order_id")
-    private List<OrderItem> orderItems;
-
+    public ReplacementOrder(String title, double price) {
+        this.title = title;
+        this.price = price;
+    }
 }

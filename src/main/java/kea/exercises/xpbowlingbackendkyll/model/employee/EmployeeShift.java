@@ -1,25 +1,26 @@
 package kea.exercises.xpbowlingbackendkyll.model.employee;
 
 import jakarta.persistence.*;
-import kea.exercises.xpbowlingbackendkyll.enums.EmployeeRoleEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
-//EmployeeRoleEnum;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class EmployeeRole {
+public class EmployeeShift {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private EmployeeRoleEnum employeeRole;
+    @ManyToOne
+    private Shift shift;
+    @ManyToOne
+    private Employee employee;
 
-    public EmployeeRole(EmployeeRoleEnum employeeRole) {
-        this.employeeRole = employeeRole;
+    public EmployeeShift(Shift shift, Employee employee) {
+        this.shift = shift;
+        this.employee = employee;
     }
 }

@@ -18,10 +18,9 @@ public class StockItem {
     private int id;
     private String title;
     private double amount;
-    @OneToMany
-    @JoinColumn(name = "order_item_id")
-    private List<OrderItem> orderItems;
 
-
-
+    public StockItem(String title, double amount) {
+        this.title = title;
+        this.amount = amount;
+    }
 }

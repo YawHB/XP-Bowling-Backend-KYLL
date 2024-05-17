@@ -19,11 +19,6 @@ public class Customer {
     private String name;
     private String phone;
 
-    @OneToMany()
-    @JoinColumn(name = "customer_id")
-    private List<Reservation> reservations;
-
-
     public Customer(String name, String phone) {
         this.name = name;
         this.phone = phone;

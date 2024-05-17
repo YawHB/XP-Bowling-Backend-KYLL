@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+
 public class ActivityType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +23,11 @@ public class ActivityType {
 
      private int maxCapacity;
 
-    @OneToMany()
-    @JoinColumn(name = "activity_type_id")
-     private List<Activity> activities;
-
+    public ActivityType(Type type, double hourlyPrice, int maxCapacity) {
+        this.type = type;
+        this.hourlyPrice = hourlyPrice;
+        this.maxCapacity = maxCapacity;
+    }
 }
 
 

@@ -18,9 +18,9 @@ public class Consumable {
     private int id;
     private String title;
     private double price;
-    @OneToMany
-    @JoinColumn(name = "consumable_id")
-    private List<SaleConsumable> saleConsumables;
 
-
+    public Consumable(String title, double price) {
+        this.title = title;
+        this.price = price;
+    }
 }

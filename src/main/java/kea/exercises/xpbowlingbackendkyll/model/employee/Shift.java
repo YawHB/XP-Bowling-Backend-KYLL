@@ -21,13 +21,9 @@ public class Shift {
     private LocalTime startTime;
     private LocalTime endTime;
 
-
-    @ManyToMany(mappedBy = "shifts")
-    private List<Employee> employees;
-
-
-
-
-
-
+    public Shift(LocalDate date, LocalTime startTime, LocalTime endTime) {
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 }
