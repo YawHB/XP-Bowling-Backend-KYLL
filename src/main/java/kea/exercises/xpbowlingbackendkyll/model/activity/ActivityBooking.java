@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -17,15 +18,15 @@ public class ActivityBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private int numberParticipants;
     @ManyToOne
     private Activity activity;
     @ManyToOne
     private Reservation reservation;
 
-    public ActivityBooking(LocalDateTime startTime, LocalDateTime endTime, int numberParticipants, Activity activity, Reservation reservation) {
+    public ActivityBooking(LocalTime startTime, LocalTime endTime, int numberParticipants, Activity activity, Reservation reservation) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.numberParticipants = numberParticipants;
