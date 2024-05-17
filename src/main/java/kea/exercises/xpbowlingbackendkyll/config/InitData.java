@@ -10,6 +10,7 @@ import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
 import kea.exercises.xpbowlingbackendkyll.repository.*;
 import org.apache.catalina.mbeans.SparseUserDatabaseMBean;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 @Component
+@Order(1)
 public class InitData implements CommandLineRunner {
 
     //H1 Repository injections
