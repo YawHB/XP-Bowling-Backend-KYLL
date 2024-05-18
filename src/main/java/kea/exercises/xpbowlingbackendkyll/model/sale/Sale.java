@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Getter
@@ -17,16 +16,9 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Timestamp saleDate;
-    private double totalPrice;
 
-    @ManyToMany
-    @JoinTable(name = "sale_consumables",
-            joinColumns = @JoinColumn(name = "sale_id"),
-            inverseJoinColumns = @JoinColumn(name = "consumable_id"))
-    private List<Consumable> consumables;
 
-    public Sale(Timestamp saleDate, double totalPrice) {
+    public Sale(Timestamp saleDate) {
         this.saleDate = saleDate;
-        this.totalPrice = totalPrice;
     }
 }

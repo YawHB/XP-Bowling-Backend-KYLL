@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Consumable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
