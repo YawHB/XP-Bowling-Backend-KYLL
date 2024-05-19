@@ -1,5 +1,6 @@
 package kea.exercises.xpbowlingbackendkyll.service.sale;
 
+import jakarta.persistence.EntityNotFoundException;
 import kea.exercises.xpbowlingbackendkyll.model.sale.Consumable;
 import kea.exercises.xpbowlingbackendkyll.repository.sale.ConsumableRepository;
 import org.springframework.stereotype.Service;
@@ -13,17 +14,14 @@ public class ConsumableService {
         this.consumableRepository = consumableRepository;
     }
 
-    public Consumable getConsumableById(Integer key) {
-        try {
-            return consumableRepository.findById(key).get();
-        } catch (Exception e) {
-            return null;
-        }
+    public Consumable getConsumableById(Integer id) {
 
-
-
+            return consumableRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Consumable with id " + id + " not found :("));
 
     }
 
 
+    public Consumable createConsumable(Consumable consumable) {
+        return consumableRepository.save(consumable);
+    }
 }
