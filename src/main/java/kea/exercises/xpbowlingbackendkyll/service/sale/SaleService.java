@@ -5,7 +5,6 @@ import kea.exercises.xpbowlingbackendkyll.repository.sale.SaleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SaleService {
@@ -26,7 +25,4 @@ public class SaleService {
     }
 
 
-    public Sale findById(int id) {
-        return saleRepository.findById(id).orElse(null);
-    }
 }

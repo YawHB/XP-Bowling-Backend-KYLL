@@ -16,11 +16,9 @@ public class SaleConsumable {
     private int amount;
 
     @ManyToOne
-    @JoinColumn(name = "sale_id")
     private Sale sale;
 
     @ManyToOne
-    @JoinColumn(name = "consumable_id")
     private Consumable consumable;
 
     public SaleConsumable(int amount, Sale sale, Consumable consumable) {
