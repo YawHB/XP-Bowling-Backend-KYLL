@@ -7,5 +7,4 @@ import java.sql.Timestamp;
 import java.util.Optional;
 
 public interface SaleRepository extends JpaRepository<Sale, Integer> {
-    Optional<Sale> findBySaleDate(Timestamp timestamp);
 }
