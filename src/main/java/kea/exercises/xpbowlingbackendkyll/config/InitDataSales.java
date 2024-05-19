@@ -11,7 +11,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -40,27 +39,40 @@ public class InitDataSales implements CommandLineRunner {
 
 
     public void createSales() {
-        List<Sale> sales = new ArrayList<>(){{
-            add(new Sale(new Timestamp(System.currentTimeMillis())));
-            add(new Sale(new Timestamp(System.currentTimeMillis())));
-            add(new Sale(new Timestamp(System.currentTimeMillis())));
-        }};
-        saleRepository.saveAll(sales);
+
+
+        List<Sale> salesToCreate = List.of(
+                new Sale(new Timestamp(System.currentTimeMillis())),
+        new Sale(new Timestamp(System.currentTimeMillis())),
+        new Sale(new Timestamp(System.currentTimeMillis()))
+        );
+
+        //Only save the sales if they don't already exist
+        List<Sale> existingSales = saleRepository.findAll();
+        if(existingSales.size() != salesToCreate.size()){
+            saleRepository.saveAll(salesToCreate);
         }
+    }
 
 
+    public void createConsumables() {
+        List<Consumable> consumablesToCreate = List.of(
+                new Consumable("Coke", 10),
+                new Consumable("Fanta", 15),
+                new Consumable("Sprite", 20),
+                new Consumable("Water", 25),
+                new Consumable("Beer", 30)
+        );
 
+        for (Consumable consumableToCreate : consumablesToCreate) {
+            // Check if a consumable with the same name already exists
+            boolean exists = consumableRepository.findByTitle(consumableToCreate.getTitle()).isPresent();
 
-public void createConsumables() {
-    List<Consumable> consumables = new ArrayList<>(){{
-        add(new Consumable("Coke", 10));
-        add(new Consumable("Fanta", 15));
-        add(new Consumable("Sprite", 20));
-        add(new Consumable("Water", 25));
-        add(new Consumable("Beer", 30));
-    }};
-    consumableRepository.saveAll(consumables);
-
+            // If it doesn't exist, save it
+            if (!exists) {
+                consumableRepository.save(consumableToCreate);
+            }
+        }
     }
 
     public void createSaleConsumables() {
@@ -70,15 +82,26 @@ public void createConsumables() {
         List<Consumable> consumables = consumableRepository.findAll();
 
         // Create the SaleConsumable objects
-        List<SaleConsumable> saleConsumables = new ArrayList<>(){{
-            add(new SaleConsumable(2, sales.get(0), consumables.get(0)));
-            add(new SaleConsumable(1, sales.get(0), consumables.get(1)));
-            add(new SaleConsumable(3, sales.get(0), consumables.get(2)));
-            add(new SaleConsumable(3, sales.get(1), consumables.get(2)));
-            add(new SaleConsumable(1, sales.get(2), consumables.get(3)));
-            add(new SaleConsumable(1, sales.get(2), consumables.get(0)));
-        }};
-        saleConsumableRepository.saveAll(saleConsumables);
+        List<SaleConsumable> saleConsumables = List.of(
+    new SaleConsumable(2, sales.get(0), consumables.get(0)),
+        new SaleConsumable(3, sales.get(0), consumables.get(2)),
+        new SaleConsumable(3, sales.get(1), consumables.get(2)),
+        new SaleConsumable(1, sales.get(2), consumables.get(3)),
+        new SaleConsumable(1, sales.get(2), consumables.get(0)),
+        new SaleConsumable(1, sales.get(0), consumables.get(1))
+        );
+
+        for(SaleConsumable saleConsumable : saleConsumables){
+            // Check if the sale consumable already exists
+            boolean exists = saleConsumableRepository.existsBySaleAndConsumable(saleConsumable.getSale(), saleConsumable.getConsumable());
+
+            // If it doesn't exist, save it
+            if (!exists) {
+                saleConsumableRepository.save(saleConsumable);
+            }
+        }
+
+
     }
 
 }

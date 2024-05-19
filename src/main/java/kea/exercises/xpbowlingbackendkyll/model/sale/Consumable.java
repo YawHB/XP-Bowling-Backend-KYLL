@@ -22,4 +22,6 @@ public class Consumable {
         this.price = price;
     }
 
+
+
 }
