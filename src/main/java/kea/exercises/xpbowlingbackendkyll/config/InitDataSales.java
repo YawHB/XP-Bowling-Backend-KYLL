@@ -57,6 +57,7 @@ public void createConsumables() {
         add(new Consumable("Fanta", 20));
         add(new Consumable("Sprite", 20));
         add(new Consumable("Water", 20));
+        add(new Consumable("Beer", 20));
     }};
     consumableRepository.saveAll(consumables);
 
