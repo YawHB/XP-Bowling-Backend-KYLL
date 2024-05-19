@@ -73,6 +73,8 @@ public void run(String... args) throws Exception {
         createReplacementOrders();
         createOrderItems();
 
+        System.out.println("Data has been initialized");
+
     }
 
     //h1 Create StockItems
