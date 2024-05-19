@@ -14,10 +14,12 @@ public class Consumable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
+    @Setter
     private double price;
 
     public Consumable(String title, double price) {
         this.title = title;
         this.price = price;
     }
+
 }

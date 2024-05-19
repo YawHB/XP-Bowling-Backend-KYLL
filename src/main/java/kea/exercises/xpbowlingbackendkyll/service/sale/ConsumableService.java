@@ -24,4 +24,16 @@ public class ConsumableService {
     public Consumable createConsumable(Consumable consumable) {
         return consumableRepository.save(consumable);
     }
+
+
+    public Consumable updateConsumable(Integer id, Consumable updatedConsumable) {
+        Consumable consumable = consumableRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Consumable with id " + id + " not found"));
+
+        consumable.setTitle(updatedConsumable.getTitle());
+        consumable.setPrice(updatedConsumable.getPrice());
+
+        return consumableRepository.save(consumable);
+    }
+
 }
