@@ -25,12 +25,7 @@ public class ConsumableController {
     }
     @PutMapping("/consumables/{id}")
     public Consumable updateConsumable(@PathVariable int id, @RequestBody Consumable updatedConsumable) {
-        Consumable consumable = consumableService.getConsumableById(id);
-
-
-        consumable.setPrice(updatedConsumable.getPrice());
-
-        return consumableService.createConsumable(consumable);
+        return consumableService.updateConsumable(id, updatedConsumable);
     }
 
 }

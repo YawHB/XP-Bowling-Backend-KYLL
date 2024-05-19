@@ -19,7 +19,6 @@ public class SaleService {
 
     public List<Sale> getSales() {
         return saleRepository.findAll();
-
     }
 
     public Sale addSale(Sale sale) {
