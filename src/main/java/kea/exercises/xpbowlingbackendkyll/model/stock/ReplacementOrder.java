@@ -17,12 +17,12 @@ public class ReplacementOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private  String title;
-    private double TotalPrice;
-    private LocalDateTime TimeDate;
+    private double totalPrice;
+    private LocalDateTime timeDate;
 
-    public ReplacementOrder(String title, double TotalPrice, LocalDateTime TimeDate) {
+    public ReplacementOrder(String title, double totalPrice, LocalDateTime timeDate) {
         this.title = title;
-        this.TotalPrice = TotalPrice;
-        this.TimeDate = LocalDateTime.now();
+        this.totalPrice = totalPrice;
+        this.timeDate = timeDate;
     }
 }
