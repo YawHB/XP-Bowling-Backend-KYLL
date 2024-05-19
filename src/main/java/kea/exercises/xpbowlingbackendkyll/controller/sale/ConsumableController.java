@@ -27,7 +27,7 @@ public class ConsumableController {
     public Consumable updateConsumable(@PathVariable int id, @RequestBody Consumable updatedConsumable) {
         Consumable consumable = consumableService.getConsumableById(id);
 
-        consumable.setTitle(updatedConsumable.getTitle());
+
         consumable.setPrice(updatedConsumable.getPrice());
 
         return consumableService.createConsumable(consumable);

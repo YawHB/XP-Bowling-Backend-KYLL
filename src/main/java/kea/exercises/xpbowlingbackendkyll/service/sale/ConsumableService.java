@@ -30,7 +30,7 @@ public class ConsumableService {
         Consumable consumable = consumableRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Consumable with id " + id + " not found"));
 
-        consumable.setTitle(updatedConsumable.getTitle());
+
         consumable.setPrice(updatedConsumable.getPrice());
 
         return consumableRepository.save(consumable);
