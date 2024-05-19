@@ -4,6 +4,8 @@ import kea.exercises.xpbowlingbackendkyll.model.sale.SaleConsumable;
 import kea.exercises.xpbowlingbackendkyll.repository.sale.SaleConsumableRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SaleConsumableService {
 
@@ -14,5 +16,9 @@ public class SaleConsumableService {
     }
     public void addSaleConsumable(SaleConsumable saleConsumable) {
         saleConsumableRepository.save(saleConsumable);
+    }
+
+    public List<SaleConsumable> getConsumablesBySaleId(int id) {
+        return saleConsumableRepository.findAllBySaleId(id);
     }
 }

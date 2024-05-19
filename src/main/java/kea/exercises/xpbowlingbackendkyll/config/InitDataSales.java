@@ -53,11 +53,11 @@ public class InitDataSales implements CommandLineRunner {
 
 public void createConsumables() {
     List<Consumable> consumables = new ArrayList<>(){{
-        add(new Consumable("Coke", 20));
-        add(new Consumable("Fanta", 20));
+        add(new Consumable("Coke", 10));
+        add(new Consumable("Fanta", 15));
         add(new Consumable("Sprite", 20));
-        add(new Consumable("Water", 20));
-        add(new Consumable("Beer", 20));
+        add(new Consumable("Water", 25));
+        add(new Consumable("Beer", 30));
     }};
     consumableRepository.saveAll(consumables);
 

@@ -21,4 +21,6 @@ public class Sale {
     public Sale(Timestamp saleDate) {
         this.saleDate = saleDate;
     }
+
+
 }
