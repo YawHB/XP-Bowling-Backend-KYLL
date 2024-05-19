@@ -1,14 +1,14 @@
 package kea.exercises.xpbowlingbackendkyll.model.sale;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Consumable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
