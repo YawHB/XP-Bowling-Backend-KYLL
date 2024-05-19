@@ -21,13 +21,13 @@ public class ReplacementOrderController {
         }
 
         @GetMapping
-        public List<ReplacementOrder> getReplacementOrders() {
-            return replacementOrderService.findAll();
+        public List<ReplacementOrder> getAllReplacementOrders() {
+            return replacementOrderService.findAllReplacementOrders();
         }
 
         @GetMapping("/{id}")
         public ResponseEntity<ReplacementOrder> getReplacementOrderById(@PathVariable int id) {
-            return ResponseEntity.of(replacementOrderService.findById(id));
+            return ResponseEntity.of(replacementOrderService.getReplacementOrderById(id));
         }
 
         @PostMapping

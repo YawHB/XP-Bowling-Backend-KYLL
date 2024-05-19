@@ -23,11 +23,11 @@ public class ReplacementOrderService {
                 this.orderItemRepository = orderItemRepository;
             }
 
-            public List<ReplacementOrder> findAll() {
+            public List<ReplacementOrder> findAllReplacementOrders() {
                 return replacementOrderRepository.findAll();
             }
 
-    public Optional<ReplacementOrder> findById(int id) {
+    public Optional<ReplacementOrder> getReplacementOrderById(int id) {
         return replacementOrderRepository.findById(id);
     }
 
@@ -43,7 +43,9 @@ public class ReplacementOrderService {
                 orderItemsList.forEach(orderItem -> orderItem.setReplacementOrder(newReplacementOrder));
                 List<OrderItemResponseDTO> newOrderItemList = orderItemRepository.saveAll(orderItemsList).stream().map(orderItem -> new OrderItemResponseDTO(orderItem.getAmountToOrder(), orderItem.getStockItem())).toList();
 
-                // TODO: get stockItem name, price, and amount in stock in response
+                // only a perhaps:
+                // TODO: get stockItem name, price, and amount in stock in response on orderItem
+
 
 
                return new ReplacementOrderResponseDTO(newReplacementOrder, newOrderItemList);
