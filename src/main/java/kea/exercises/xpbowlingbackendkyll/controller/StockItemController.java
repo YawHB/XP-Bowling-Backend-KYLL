@@ -30,4 +30,9 @@ public class StockItemController {
         return ResponseEntity.of(stockItemService.findById(id));
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<StockItem> getStockItemByName(@PathVariable String name) {
+        return ResponseEntity.of(stockItemService.findStockItemByName(name));
+    }
+
 }

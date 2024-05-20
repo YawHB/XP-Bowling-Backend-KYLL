@@ -23,4 +23,9 @@ public class StockItemService {
     public Optional<StockItem> findById(int id) {
         return stockItemRepository.findById(id);
     }
+
+
+    public Optional<StockItem> findStockItemByName(String name) {
+        return stockItemRepository.findByName(name);
+    }
 }
