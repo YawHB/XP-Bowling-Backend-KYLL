@@ -17,13 +17,16 @@ public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    private Employee employee;
     private LocalDate date;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private int startTime;
+    private String placeName;
 
-    public Shift(LocalDate date, LocalTime startTime, LocalTime endTime) {
+    public Shift(Employee employee, LocalDate date, int startTime, String placeName) {
+        this.employee = employee;
         this.date = date;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.placeName = placeName;
     }
 }
