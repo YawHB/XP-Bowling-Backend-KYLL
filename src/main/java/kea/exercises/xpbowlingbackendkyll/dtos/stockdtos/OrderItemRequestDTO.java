@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.dtos;
+package kea.exercises.xpbowlingbackendkyll.dtos.stockdtos;
 
 
 //public record OrderItemRequestDTO(int amountToOrder, StockItemRequestDTO stockItem) {

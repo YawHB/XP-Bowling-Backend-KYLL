@@ -1,7 +1,7 @@
-package kea.exercises.xpbowlingbackendkyll.controller;
+package kea.exercises.xpbowlingbackendkyll.controller.stock;
 
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
-import kea.exercises.xpbowlingbackendkyll.service.OrderItemService;
+import kea.exercises.xpbowlingbackendkyll.service.stockServices.OrderItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

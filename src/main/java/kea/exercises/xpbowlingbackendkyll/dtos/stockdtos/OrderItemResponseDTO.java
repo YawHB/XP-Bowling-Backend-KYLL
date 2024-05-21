@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.dtos;
+package kea.exercises.xpbowlingbackendkyll.dtos.stockdtos;
 
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
 

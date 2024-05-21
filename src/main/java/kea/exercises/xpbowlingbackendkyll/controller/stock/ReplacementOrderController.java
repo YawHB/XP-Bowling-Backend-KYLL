@@ -1,9 +1,9 @@
-package kea.exercises.xpbowlingbackendkyll.controller;
+package kea.exercises.xpbowlingbackendkyll.controller.stock;
 
-import kea.exercises.xpbowlingbackendkyll.dtos.ReplacementOrderRequestDTO;
-import kea.exercises.xpbowlingbackendkyll.dtos.ReplacementOrderResponseDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.ReplacementOrderRequestDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.ReplacementOrderResponseDTO;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
-import kea.exercises.xpbowlingbackendkyll.service.ReplacementOrderService;
+import kea.exercises.xpbowlingbackendkyll.service.stockServices.ReplacementOrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

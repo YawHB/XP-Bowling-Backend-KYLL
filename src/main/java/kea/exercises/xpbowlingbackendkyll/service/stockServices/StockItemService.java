@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.service;
+package kea.exercises.xpbowlingbackendkyll.service.stockServices;
 
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
 import kea.exercises.xpbowlingbackendkyll.repository.StockItemRepository;

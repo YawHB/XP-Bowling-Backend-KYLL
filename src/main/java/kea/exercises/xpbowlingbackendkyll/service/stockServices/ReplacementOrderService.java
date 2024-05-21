@@ -1,9 +1,9 @@
-package kea.exercises.xpbowlingbackendkyll.service;
+package kea.exercises.xpbowlingbackendkyll.service.stockServices;
 
-import kea.exercises.xpbowlingbackendkyll.dtos.OrderItemRequestDTO;
-import kea.exercises.xpbowlingbackendkyll.dtos.OrderItemResponseDTO;
-import kea.exercises.xpbowlingbackendkyll.dtos.ReplacementOrderRequestDTO;
-import kea.exercises.xpbowlingbackendkyll.dtos.ReplacementOrderResponseDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.OrderItemRequestDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.OrderItemResponseDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.ReplacementOrderRequestDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.ReplacementOrderResponseDTO;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
