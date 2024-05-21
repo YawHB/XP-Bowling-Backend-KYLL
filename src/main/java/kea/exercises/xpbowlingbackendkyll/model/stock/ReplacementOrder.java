@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -16,10 +17,12 @@ public class ReplacementOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private  String title;
-    private double price;
+    private double totalPrice;
+    private LocalDateTime timeDate;
 
-    public ReplacementOrder(String title, double price) {
+    public ReplacementOrder(String title, double totalPrice, LocalDateTime timeDate) {
         this.title = title;
-        this.price = price;
+        this.totalPrice = totalPrice;
+        this.timeDate = timeDate;
     }
 }

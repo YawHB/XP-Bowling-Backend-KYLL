@@ -16,11 +16,13 @@ public class StockItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
-    private double amount;
+    private String name;
+    private double price;
+    private int amountInCentre;
 
-    public StockItem(String title, double amount) {
-        this.title = title;
-        this.amount = amount;
+    public StockItem(String name, double price, int amountInCentre) {
+        this.name = name;
+        this.price = price;
+        this.amountInCentre = amountInCentre;
     }
 }
