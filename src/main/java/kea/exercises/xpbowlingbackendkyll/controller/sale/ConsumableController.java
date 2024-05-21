@@ -4,6 +4,8 @@ import kea.exercises.xpbowlingbackendkyll.model.sale.Consumable;
 import kea.exercises.xpbowlingbackendkyll.service.sale.ConsumableService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ConsumableController {
 
@@ -17,6 +19,11 @@ public class ConsumableController {
     @GetMapping("/consumables/{id}")
     public Consumable getConsumableById(@PathVariable int id) {
         return consumableService.getConsumableById(id);
+    }
+
+@GetMapping("/consumables")
+    public List<Consumable> getAllConsumables() {
+        return consumableService.getAllConsumables();
     }
 
    @PostMapping("/consumables")

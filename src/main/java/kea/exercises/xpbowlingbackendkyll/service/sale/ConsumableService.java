@@ -5,6 +5,8 @@ import kea.exercises.xpbowlingbackendkyll.model.sale.Consumable;
 import kea.exercises.xpbowlingbackendkyll.repository.sale.ConsumableRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ConsumableService {
 
@@ -36,4 +38,7 @@ public class ConsumableService {
         return consumableRepository.save(consumable);
     }
 
+    public List<Consumable> getAllConsumables() {
+        return consumableRepository.findAll();
+    }
 }
