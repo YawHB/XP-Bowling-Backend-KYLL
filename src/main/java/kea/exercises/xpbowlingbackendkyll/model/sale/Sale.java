@@ -1,12 +1,11 @@
 package kea.exercises.xpbowlingbackendkyll.model.sale;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Getter
@@ -17,10 +16,12 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Timestamp saleDate;
-    private double totalPrice;
 
-    public Sale(Timestamp saleDate, double totalPrice) {
+
+    public Sale(Timestamp saleDate) {
         this.saleDate = saleDate;
-        this.totalPrice = totalPrice;
     }
+
+
+
 }
