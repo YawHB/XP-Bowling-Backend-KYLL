@@ -1,5 +1,6 @@
 package kea.exercises.xpbowlingbackendkyll.config;
 
+import kea.exercises.xpbowlingbackendkyll.enums.EmployeeRoleEnum;
 import kea.exercises.xpbowlingbackendkyll.enums.Type;
 import kea.exercises.xpbowlingbackendkyll.model.activity.Activity;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
@@ -7,6 +8,7 @@ import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityParticipants;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
+import kea.exercises.xpbowlingbackendkyll.model.employee.EmployeeRole;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
@@ -35,6 +37,8 @@ public class InitData implements CommandLineRunner {
     private final StockItemRepository stockItemRepository;
     private final ReplacementOrderRepository replacementOrderRepository;
     private final OrderItemRepository orderItemRepository;
+    private final EmployeeRoleRepository employeeRoleRepository;
+    private final EmployeeRepository employeeRepository;
 
 
     //H1 Constructor InitData with ActivityRepository injection
@@ -46,7 +50,9 @@ public class InitData implements CommandLineRunner {
                     ActivityParticipantsRepository activityParticipantsRepository,
                     StockItemRepository stockItemRepository,
                     ReplacementOrderRepository replacementOrderRepository,
-                    OrderItemRepository orderItemRepository
+                    OrderItemRepository orderItemRepository,
+                    EmployeeRoleRepository employeeRoleRepository,
+                    EmployeeRepository employeeRepository
 
                    ) {
         this.activityTypeRepository = activityTypeRepository;
@@ -58,6 +64,8 @@ public class InitData implements CommandLineRunner {
         this.stockItemRepository = stockItemRepository;
         this.replacementOrderRepository = replacementOrderRepository;
         this.orderItemRepository = orderItemRepository;
+        this.employeeRepository = employeeRepository;
+        this.employeeRoleRepository = employeeRoleRepository;
 
     }
 
@@ -74,9 +82,27 @@ public void run(String... args) throws Exception {
         createStockItems();
         createReplacementOrders();
         createOrderItems();
+        createEmployeeTypes();
 
         System.out.println("Data has been initialized");
 
+    }
+
+
+
+
+
+    //h1 Create EmployeeTypes
+    public void createEmployeeTypes() {
+        List<EmployeeRole> employeeRoles = new ArrayList<>(){{
+            add(new EmployeeRole(EmployeeRoleEnum.RECEPTIONIST));
+            add(new EmployeeRole(EmployeeRoleEnum.OPERATOR));
+            add(new EmployeeRole(EmployeeRoleEnum.MANAGER));
+            add(new EmployeeRole(EmployeeRoleEnum.CLEANER));
+
+
+        }};
+        employeeRoleRepository.saveAll(employeeRoles);
     }
 
     //h1 Create StockItems
