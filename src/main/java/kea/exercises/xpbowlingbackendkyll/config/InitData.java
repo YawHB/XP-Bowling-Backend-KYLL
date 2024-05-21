@@ -10,6 +10,7 @@ import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
 import kea.exercises.xpbowlingbackendkyll.model.employee.Employee;
 import kea.exercises.xpbowlingbackendkyll.model.employee.EmployeeRole;
+import kea.exercises.xpbowlingbackendkyll.model.employee.Shift;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
@@ -40,6 +41,7 @@ public class InitData implements CommandLineRunner {
     private final OrderItemRepository orderItemRepository;
     private final EmployeeRoleRepository employeeRoleRepository;
     private final EmployeeRepository employeeRepository;
+    private final ShiftRepository shiftRepository;
 
 
     //H1 Constructor InitData with ActivityRepository injection
@@ -53,7 +55,8 @@ public class InitData implements CommandLineRunner {
                     ReplacementOrderRepository replacementOrderRepository,
                     OrderItemRepository orderItemRepository,
                     EmployeeRoleRepository employeeRoleRepository,
-                    EmployeeRepository employeeRepository
+                    EmployeeRepository employeeRepository,
+                    ShiftRepository shiftRepository
 
                    ) {
         this.activityTypeRepository = activityTypeRepository;
@@ -67,6 +70,7 @@ public class InitData implements CommandLineRunner {
         this.orderItemRepository = orderItemRepository;
         this.employeeRepository = employeeRepository;
         this.employeeRoleRepository = employeeRoleRepository;
+        this.shiftRepository = shiftRepository;
 
     }
 
@@ -85,6 +89,7 @@ public void run(String... args) throws Exception {
         createOrderItems();
         createEmployeeTypes();
         createEmployees();
+        createShifts();
 
         System.out.println("Data has been initialized");
 
@@ -105,7 +110,7 @@ public void run(String... args) throws Exception {
         employeeRoleRepository.saveAll(employeeRoles);
     }
 
-    //h1 Create 12 Employees and save to repository
+    //h1 Create 12 Employees
     public void createEmployees() {
         List<Employee> employees = new ArrayList<>(){
             {
@@ -127,6 +132,27 @@ public void run(String... args) throws Exception {
                 add(new Employee("Preben", "Persson", employeeRoleRepository.findById(4).get()));
             }};
         employeeRepository.saveAll(employees);
+    }
+
+    //h1 Create Shifts
+    public void createShifts() {
+        List<Shift> shifts = new ArrayList<>(){{
+            add(new Shift(LocalDate.now(), 10, "Reception1", employeeRepository.findById(1).get()));
+            add(new Shift(LocalDate.now(), 10, "Reception2", employeeRepository.findById(2).get()));
+            add(new Shift(LocalDate.now(), 17, "Reception1", employeeRepository.findById(3).get()));
+            add(new Shift(LocalDate.now(), 17, "Reception2", employeeRepository.findById(4).get()));
+            add(new Shift(LocalDate.now(), 10, "Operator", employeeRepository.findById(5).get()));
+            add(new Shift(LocalDate.now(), 17, "Operator", employeeRepository.findById(6).get()));
+            add(new Shift(LocalDate.now(), 10, "Manager", employeeRepository.findById(7).get()));
+            add(new Shift(LocalDate.now(), 17, "Manager", employeeRepository.findById(8).get()));
+            add(new Shift(LocalDate.now(), 10, "Cleaning1", employeeRepository.findById(9).get()));
+            add(new Shift(LocalDate.now(), 10, "Cleaning2", employeeRepository.findById(10).get()));
+            add(new Shift(LocalDate.now(), 17, "Cleaning1", employeeRepository.findById(11).get()));
+            add(new Shift(LocalDate.now(), 17, "Cleaning2", employeeRepository.findById(12).get()));
+
+
+        }};
+        shiftRepository.saveAll(shifts);
     }
 
     //h1 Create StockItems
