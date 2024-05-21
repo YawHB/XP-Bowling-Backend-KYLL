@@ -30,7 +30,7 @@ class ReplacementOrderServiceTest {
     "orderItems": [
         {
             "amountToOrder": 6,
-            "stockItem": {"id": 6}
+            "stockItem": {"name": "Bowling-shoe-pair size 38"}
         }
 
     ]

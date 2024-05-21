@@ -39,30 +39,6 @@ public class ReplacementOrderService {
         return replacementOrderRepository.findById(id);
     }
 
-//    public ReplacementOrderResponseDTO createReplacementOrder(ReplacementOrderRequestDTO replacementOrderAndOrderItems) {
-//
-//        ReplacementOrder replacementOrder = replacementOrderAndOrderItems.replacementOrder();
-//        List<OrderItem> orderItemsList = replacementOrderAndOrderItems.orderItems();
-//
-//        ReplacementOrder newReplacementOrder = replacementOrderRepository.save(replacementOrder);
-//        System.out.println(replacementOrder);
-//
-//
-//        orderItemsList.forEach(orderItem -> orderItem.setReplacementOrder(newReplacementOrder));
-//        List<OrderItemResponseDTO> newOrderItemList = orderItemRepository.saveAll(orderItemsList).stream().map(orderItem -> new OrderItemResponseDTO(orderItem.getAmountToOrder(), orderItem.getStockItem())).toList();
-//
-//        // find stockItem by name instead of id
-//
-//
-//
-//        // only a perhaps:
-//        // TODO: get stockItem name, price, and amount in stock in response on orderItem
-//
-//
-//        return new ReplacementOrderResponseDTO(newReplacementOrder, newOrderItemList);
-//
-//
-//    }
 
     public ReplacementOrderResponseDTO createReplacementOrder(ReplacementOrderRequestDTO replacementOrderAndOrderItems) {
 
