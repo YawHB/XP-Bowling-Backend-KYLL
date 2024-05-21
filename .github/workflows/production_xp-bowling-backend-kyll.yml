@@ -8,14 +8,15 @@ on:
     branches:
       - Production
   workflow_dispatch:
-    env:
-      JDBC_DATABASE_URL: ${{secrets.JDBC_DATABASE_URL}}
-      JDBC_PASSWORD: ${{secrets.JDBC_PASSWORD}}
-      JDBC_USERNAME: ${{secrets.JDBC_USERNAME}}
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      JDBC_DATABASE_URL: ${{secrets.JDBC_DATABASE_URL}}
+      JDBC_PASSWORD: ${{secrets.JDBC_PASSWORD}}
+      JDBC_USERNAME: ${{secrets.JDBC_USERNAME}}
 
     steps:
       - uses: actions/checkout@v4
