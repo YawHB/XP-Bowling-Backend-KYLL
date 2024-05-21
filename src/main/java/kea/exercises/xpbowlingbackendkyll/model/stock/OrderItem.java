@@ -14,18 +14,14 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private double amount;
-    private double totalPrice;
-    private LocalDateTime orderTime;
+    private int amountToOrder;
     @ManyToOne
     private StockItem stockItem;
     @ManyToOne
     private ReplacementOrder replacementOrder;
 
-    public OrderItem(double amount, double totalPrice, LocalDateTime orderTime, StockItem stockItem, ReplacementOrder replacementOrder) {
-        this.amount = amount;
-        this.totalPrice = totalPrice;
-        this.orderTime = orderTime;
+    public OrderItem(int amountToOrder, StockItem stockItem, ReplacementOrder replacementOrder) {
+        this.amountToOrder = amountToOrder;
         this.stockItem = stockItem;
         this.replacementOrder = replacementOrder;
     }
