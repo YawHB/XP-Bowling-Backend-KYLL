@@ -8,6 +8,7 @@ import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityParticipants;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
+import kea.exercises.xpbowlingbackendkyll.model.employee.Employee;
 import kea.exercises.xpbowlingbackendkyll.model.employee.EmployeeRole;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
@@ -83,6 +84,7 @@ public void run(String... args) throws Exception {
         createReplacementOrders();
         createOrderItems();
         createEmployeeTypes();
+        createEmployees();
 
         System.out.println("Data has been initialized");
 
@@ -99,10 +101,32 @@ public void run(String... args) throws Exception {
             add(new EmployeeRole(EmployeeRoleEnum.OPERATOR));
             add(new EmployeeRole(EmployeeRoleEnum.MANAGER));
             add(new EmployeeRole(EmployeeRoleEnum.CLEANER));
-
-
         }};
         employeeRoleRepository.saveAll(employeeRoles);
+    }
+
+    //h1 Create 12 Employees and save to repository
+    public void createEmployees() {
+        List<Employee> employees = new ArrayList<>(){
+            {
+                // Receptionists
+                add(new Employee("Kasper", "Madsen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Jens", "Mortensen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Lisa", "Hansen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Malene", "Jespersen", employeeRoleRepository.findById(1).get()));
+                // Operators
+                add(new Employee("Mads", "Jensen", employeeRoleRepository.findById(2).get()));
+                add(new Employee("Maria", "Olsen", employeeRoleRepository.findById(2).get()));
+                // Managers
+                add(new Employee("Mikkel", "Saugstrup", employeeRoleRepository.findById(3).get()));
+                add(new Employee("Mette", "Fensby", employeeRoleRepository.findById(3).get()));
+                // Cleaners
+                add(new Employee("Hanna", "Neermark", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Mia", "Schou", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Judy", "Jonsen", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Preben", "Persson", employeeRoleRepository.findById(4).get()));
+            }};
+        employeeRepository.saveAll(employees);
     }
 
     //h1 Create StockItems
