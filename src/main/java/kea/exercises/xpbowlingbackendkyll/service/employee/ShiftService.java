@@ -1,5 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.service.employee;
 
+import kea.exercises.xpbowlingbackendkyll.dtos.employeedtos.ShiftRequestDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.employeedtos.ShiftResponseDTO;
 import kea.exercises.xpbowlingbackendkyll.model.employee.Shift;
 import kea.exercises.xpbowlingbackendkyll.repository.employee.ShiftRepository;
 import org.springframework.stereotype.Service;
@@ -21,9 +23,14 @@ public class ShiftService {
         return shiftRepository.findAll();
     }
 
-    public Shift addShift(Shift shift) {
-            return shiftRepository.save(shift);
+    public ShiftResponseDTO addShift(ShiftRequestDTO shiftRequestDTO) {
+            return toResponseDTO(shiftRepository.save(toShift(shiftRequestDTO)));
     }
+
+    // Old addShift method
+    //public Shift addShift(Shift shift) {
+    //    return shiftRepository.save(shift);
+    //}
 
     public Optional<Shift> getShiftById(int id) {
         return shiftRepository.findById(id);

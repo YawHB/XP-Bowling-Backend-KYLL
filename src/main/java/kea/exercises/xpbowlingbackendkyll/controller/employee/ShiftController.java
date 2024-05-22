@@ -1,7 +1,10 @@
 package kea.exercises.xpbowlingbackendkyll.controller.employee;
 
+import kea.exercises.xpbowlingbackendkyll.dtos.employeedtos.ShiftResponseDTO;
+import kea.exercises.xpbowlingbackendkyll.dtos.employeedtos.ShiftRequestDTO;
 import kea.exercises.xpbowlingbackendkyll.model.employee.Shift;
 import kea.exercises.xpbowlingbackendkyll.service.employee.ShiftService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +30,14 @@ public class ShiftController {
     }
 
     @PostMapping("/shifts")
-    public Shift addShift(@RequestBody Shift shift) {
-        return shiftService.addShift(shift);
+    public ResponseEntity<ShiftResponseDTO> addShift(@RequestBody ShiftRequestDTO shiftRequestDTO) {
+        ShiftResponseDTO newShift = shiftService.addShift(shiftRequestDTO);
+        return ResponseEntity.ok(newShift);
     }
+
+    //Old post
+    //@PostMapping("/shifts")
+    //public Shift addShift(@RequestBody Shift shift) {
+    //    return shiftService.addShift(shift);
+    //}
 }
