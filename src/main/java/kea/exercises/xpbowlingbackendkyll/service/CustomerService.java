@@ -12,10 +12,17 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
+
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
+
+
+    public Optional<Customer> save(Customer customer) {
+        Customer savedCustomer = customerRepository.save(customer);
+        return Optional.of(savedCustomer);
+    }
     public List<Customer>  findAll() {
         return customerRepository.findAll();
     }
