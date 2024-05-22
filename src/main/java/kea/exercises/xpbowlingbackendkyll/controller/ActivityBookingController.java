@@ -26,17 +26,17 @@ public class ActivityBookingController {
 //        }
 //        return newBookings;
 //         }
-    @PostMapping("/activityBooking")
+    @PostMapping("/activityBookings")
     public Optional<ActivityBooking> createCustomer(@RequestBody ActivityBooking activityBooking){
         Optional<ActivityBooking> newActivityBooking = activityBookingService.save(activityBooking);
         return newActivityBooking; }
 
-    @GetMapping("/activityBooking")
+    @GetMapping("/activityBookings")
     public List<ActivityBooking> getAllCustomers() {
         return activityBookingService.findAll();
     }
 
-    @GetMapping("/activityBooking/{id}")
+    @GetMapping("/activityBookings/{id}")
     public Optional<ActivityBooking> getCustomerById(@PathVariable int id) {
         return activityBookingService.findById(id);
     }
