@@ -3,7 +3,7 @@ package kea.exercises.xpbowlingbackendkyll.service;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
 import kea.exercises.xpbowlingbackendkyll.repository.ActivityTypeRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 import java.util.Optional;

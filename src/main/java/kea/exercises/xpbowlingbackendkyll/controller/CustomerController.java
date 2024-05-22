@@ -2,7 +2,6 @@ package kea.exercises.xpbowlingbackendkyll.controller;
 
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.service.CustomerService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
