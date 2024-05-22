@@ -28,4 +28,25 @@ public class ShiftService {
     public Optional<Shift> getShiftById(int id) {
         return shiftRepository.findById(id);
     }
+
+
+    public ShiftResponseDTO toResponseDTO(Shift shift) {
+        ShiftResponseDTO shiftResponseDTO = new ShiftResponseDTO();
+        shiftResponseDTO.setDate(shift.getDate());
+        shiftResponseDTO.setStartTime(shift.getStartTime());
+        shiftResponseDTO.setPlaceName(shift.getPlaceName());
+        shiftResponseDTO.setEmployee(shift.getEmployee());
+        return shiftResponseDTO;
+    }
+
+    public Shift toShift(ShiftRequestDTO shiftRequestDTO) {
+        Shift shift = new Shift();
+        shift.setDate(shiftRequestDTO.date());
+        shift.setStartTime(shiftRequestDTO.startTime());
+        shift.setPlaceName(shiftRequestDTO.placeName());
+        shift.setEmployee(shiftRequestDTO.employee());
+        return shift;
+    }
+
+
 }
