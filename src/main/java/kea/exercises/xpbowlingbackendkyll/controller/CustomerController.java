@@ -2,6 +2,7 @@ package kea.exercises.xpbowlingbackendkyll.controller;
 
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.service.CustomerService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +19,8 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
-    public Optional<Customer> createCustomer(@RequestBody Customer customer){
-       Optional<Customer> newCusomer = customerService.save(customer);
-    return newCusomer; }
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
+        return ResponseEntity.ok(customerService.save(customer)) ; }
 
 
 
