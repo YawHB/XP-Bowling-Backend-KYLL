@@ -1,7 +1,7 @@
-package kea.exercises.xpbowlingbackendkyll.controller;
+package kea.exercises.xpbowlingbackendkyll.controller.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
-import kea.exercises.xpbowlingbackendkyll.service.ReservationService;
+import kea.exercises.xpbowlingbackendkyll.service.booking.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

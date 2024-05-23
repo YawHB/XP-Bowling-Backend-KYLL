@@ -1,7 +1,7 @@
-package kea.exercises.xpbowlingbackendkyll.controller;
+package kea.exercises.xpbowlingbackendkyll.controller.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
-import kea.exercises.xpbowlingbackendkyll.service.ActivityTypeService;
+import kea.exercises.xpbowlingbackendkyll.service.booking.ActivityTypeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

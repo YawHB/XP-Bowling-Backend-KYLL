@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.service;
+package kea.exercises.xpbowlingbackendkyll.service.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityParticipants;
 import kea.exercises.xpbowlingbackendkyll.repository.ActivityParticipantsRepository;
