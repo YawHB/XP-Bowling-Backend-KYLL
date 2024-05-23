@@ -19,9 +19,9 @@ public class CustomerService {
 
 
 
-    public Optional<Customer> save(Customer customer) {
-        Customer savedCustomer = customerRepository.save(customer);
-        return Optional.of(savedCustomer);
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
+
     }
     public List<Customer>  findAll() {
         return customerRepository.findAll();
