@@ -15,17 +15,6 @@ public class ActivityBookingController {
         this.activityBookingService = activityBookingService;
     }
 
-    //Vi vil gerner have en chain poster også
-
-    //    @PostMapping("/activityBookingArray")
-//    public List<ActivityBooking> createCustomerArray(@RequestBody List<ActivityBooking> activityBookingArray){
-//        List<ActivityBooking> postedActivitiesArray;
-//        for(ActivityBooking activityBooking: activityBookingArray){
-//            Optional<ActivityBooking> newActivityBooking = activityBookingService.save(activityBooking);
-//            postedActivitiesArray add newActivityBooking;
-//        }
-//        return newBookings;
-//         }
     @PostMapping("/activityBookings")
     public Optional<ActivityBooking> createCustomer(@RequestBody ActivityBooking activityBooking){
         Optional<ActivityBooking> newActivityBooking = activityBookingService.save(activityBooking);
