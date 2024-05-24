@@ -144,14 +144,9 @@ public void run(String... args) throws Exception {
             add(new Shift(LocalDate.now(), 10, "Reception1", employeeRepository.findById(1).get()));
             add(new Shift(LocalDate.now(), 10, "Reception2", employeeRepository.findById(2).get()));
             add(new Shift(LocalDate.now(), 10, "Operator", employeeRepository.findById(5).get()));
-            add(new Shift(LocalDate.now(), 17, "Operator", employeeRepository.findById(6).get()));
             add(new Shift(LocalDate.now(), 10, "Manager", employeeRepository.findById(7).get()));
-            add(new Shift(LocalDate.now(), 17, "Manager", employeeRepository.findById(8).get()));
             add(new Shift(LocalDate.now(), 10, "Cleaning1", employeeRepository.findById(9).get()));
             add(new Shift(LocalDate.now(), 10, "Cleaning2", employeeRepository.findById(10).get()));
-            add(new Shift(LocalDate.now(), 17, "Cleaning1", employeeRepository.findById(11).get()));
-            add(new Shift(LocalDate.now(), 17, "Cleaning2", employeeRepository.findById(12).get()));
-
 
         }};
         shiftRepository.saveAll(shifts);
