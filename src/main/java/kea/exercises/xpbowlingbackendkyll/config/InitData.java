@@ -143,8 +143,6 @@ public void run(String... args) throws Exception {
         List<Shift> shifts = new ArrayList<>(){{
             add(new Shift(LocalDate.now(), 10, "Reception1", employeeRepository.findById(1).get()));
             add(new Shift(LocalDate.now(), 10, "Reception2", employeeRepository.findById(2).get()));
-            add(new Shift(LocalDate.now(), 17, "Reception1", employeeRepository.findById(3).get()));
-            add(new Shift(LocalDate.now(), 17, "Reception2", employeeRepository.findById(4).get()));
             add(new Shift(LocalDate.now(), 10, "Operator", employeeRepository.findById(5).get()));
             add(new Shift(LocalDate.now(), 17, "Operator", employeeRepository.findById(6).get()));
             add(new Shift(LocalDate.now(), 10, "Manager", employeeRepository.findById(7).get()));
