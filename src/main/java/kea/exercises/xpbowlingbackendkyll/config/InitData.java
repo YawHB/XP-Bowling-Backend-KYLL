@@ -92,6 +92,8 @@ public void run(String... args) throws Exception {
         createEmployeeTypes();
         createEmployees();
         createShifts();
+        createTrainingReservations();
+        createActivityBookingsForTraining();
 
         System.out.println("Data has been initialized");
 
@@ -283,6 +285,7 @@ public void run(String... args) throws Exception {
            add(new Customer("Jens Mogensen", "43891254"));
            add(new Customer("Lis Hansen", "54918456"));
            add(new Customer("Karen Jespersen", "21235399"));
+           add(new Customer("Training", "21235399"));
     }};
          customerRepository.saveAll(customers);
 
@@ -438,5 +441,72 @@ List<Activity> activities = new ArrayList<>(){{
 
 
     }
+
+    ///////////
+    //h1 Create training reservations
+    public void createTrainingReservations() {
+        List<Reservation> reservations = new ArrayList<>(){{
+            add(new Reservation(LocalDate.of(2024, 5, 27), 0, customerRepository.findById(5).get()));
+
+        }};
+        reservationRepository.saveAll(reservations);
+    }
+
+
+
+
+    //h1: Create ActivityBookings for Traing
+    public void createActivityBookingsForTraining() {
+
+        List<ActivityBooking> activityBookings = new ArrayList<>(){{
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(1).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(2).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(3).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(4).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(5).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(6).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(7).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(8).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(9).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(10).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(11).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(12).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(13).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(14).get(),
+                    reservationRepository.findById(5).get()));
+
+        }};
+        activityBookingRepository.saveAll(activityBookings);
+
+    }
+
+
 }
 
