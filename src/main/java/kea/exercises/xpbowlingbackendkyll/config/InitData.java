@@ -1,5 +1,6 @@
 package kea.exercises.xpbowlingbackendkyll.config;
 
+import kea.exercises.xpbowlingbackendkyll.enums.EmployeeRoleEnum;
 import kea.exercises.xpbowlingbackendkyll.enums.Type;
 import kea.exercises.xpbowlingbackendkyll.model.activity.Activity;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
@@ -7,11 +8,16 @@ import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityParticipants;
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Reservation;
+import kea.exercises.xpbowlingbackendkyll.model.employee.Employee;
+import kea.exercises.xpbowlingbackendkyll.model.employee.EmployeeRole;
+import kea.exercises.xpbowlingbackendkyll.model.employee.Shift;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
 import kea.exercises.xpbowlingbackendkyll.repository.*;
-import org.apache.catalina.mbeans.SparseUserDatabaseMBean;
+import kea.exercises.xpbowlingbackendkyll.repository.employee.EmployeeRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.employee.EmployeeRoleRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.employee.ShiftRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -35,6 +41,9 @@ public class InitData implements CommandLineRunner {
     private final StockItemRepository stockItemRepository;
     private final ReplacementOrderRepository replacementOrderRepository;
     private final OrderItemRepository orderItemRepository;
+    private final EmployeeRoleRepository employeeRoleRepository;
+    private final EmployeeRepository employeeRepository;
+    private final ShiftRepository shiftRepository;
 
 
     //H1 Constructor InitData with ActivityRepository injection
@@ -46,7 +55,10 @@ public class InitData implements CommandLineRunner {
                     ActivityParticipantsRepository activityParticipantsRepository,
                     StockItemRepository stockItemRepository,
                     ReplacementOrderRepository replacementOrderRepository,
-                    OrderItemRepository orderItemRepository
+                    OrderItemRepository orderItemRepository,
+                    EmployeeRoleRepository employeeRoleRepository,
+                    EmployeeRepository employeeRepository,
+                    ShiftRepository shiftRepository
 
                    ) {
         this.activityTypeRepository = activityTypeRepository;
@@ -58,6 +70,9 @@ public class InitData implements CommandLineRunner {
         this.stockItemRepository = stockItemRepository;
         this.replacementOrderRepository = replacementOrderRepository;
         this.orderItemRepository = orderItemRepository;
+        this.employeeRepository = employeeRepository;
+        this.employeeRoleRepository = employeeRoleRepository;
+        this.shiftRepository = shiftRepository;
 
     }
 
@@ -74,9 +89,67 @@ public void run(String... args) throws Exception {
         createStockItems();
         createReplacementOrders();
         createOrderItems();
+        createEmployeeTypes();
+        createEmployees();
+        createShifts();
+        createTrainingReservations();
+        createActivityBookingsForTraining();
 
         System.out.println("Data has been initialized");
 
+    }
+
+
+
+
+
+    //h1 Create EmployeeTypes
+    public void createEmployeeTypes() {
+        List<EmployeeRole> employeeRoles = new ArrayList<>(){{
+            add(new EmployeeRole(EmployeeRoleEnum.RECEPTIONIST));
+            add(new EmployeeRole(EmployeeRoleEnum.OPERATOR));
+            add(new EmployeeRole(EmployeeRoleEnum.MANAGER));
+            add(new EmployeeRole(EmployeeRoleEnum.CLEANER));
+        }};
+        employeeRoleRepository.saveAll(employeeRoles);
+    }
+
+    //h1 Create 12 Employees
+    public void createEmployees() {
+        List<Employee> employees = new ArrayList<>(){
+            {
+                // Receptionists
+                add(new Employee("Kasper", "Madsen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Jens", "Mortensen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Lisa", "Hansen", employeeRoleRepository.findById(1).get()));
+                add(new Employee("Malene", "Jespersen", employeeRoleRepository.findById(1).get()));
+                // Operators
+                add(new Employee("Mads", "Jensen", employeeRoleRepository.findById(2).get()));
+                add(new Employee("Maria", "Olsen", employeeRoleRepository.findById(2).get()));
+                // Managers
+                add(new Employee("Mikkel", "Saugstrup", employeeRoleRepository.findById(3).get()));
+                add(new Employee("Mette", "Fensby", employeeRoleRepository.findById(3).get()));
+                // Cleaners
+                add(new Employee("Hanna", "Neermark", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Mia", "Schou", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Judy", "Jonsen", employeeRoleRepository.findById(4).get()));
+                add(new Employee("Preben", "Persson", employeeRoleRepository.findById(4).get()));
+            }};
+        employeeRepository.saveAll(employees);
+    }
+
+    //h1 Create Shifts
+    public void createShifts() {
+        List<Shift> shifts = new ArrayList<>(){{
+            add(new Shift(LocalDate.now(), 10, "Reception1", employeeRepository.findById(1).get()));
+            add(new Shift(LocalDate.now(), 10, "Reception2", employeeRepository.findById(2).get()));
+            add(new Shift(LocalDate.now(), 10, "Operator", employeeRepository.findById(5).get()));
+            add(new Shift(LocalDate.now(), 10, "Manager", employeeRepository.findById(7).get()));
+            add(new Shift(LocalDate.now(), 10, "Cleaning1", employeeRepository.findById(9).get()));
+            add(new Shift(LocalDate.now(), 10, "Cleaning2", employeeRepository.findById(10).get()));
+
+        }};
+        shiftRepository.saveAll(shifts);
     }
 
     //h1 Create StockItems
@@ -205,6 +278,7 @@ public void run(String... args) throws Exception {
            add(new Customer("Jens Mogensen", "43891254"));
            add(new Customer("Lis Hansen", "54918456"));
            add(new Customer("Karen Jespersen", "21235399"));
+           add(new Customer("Training", "21235399"));
     }};
          customerRepository.saveAll(customers);
 
@@ -360,5 +434,72 @@ List<Activity> activities = new ArrayList<>(){{
 
 
     }
+
+    ///////////
+    //h1 Create training reservations
+    public void createTrainingReservations() {
+        List<Reservation> reservations = new ArrayList<>(){{
+            add(new Reservation(LocalDate.of(2024, 5, 27), 0, customerRepository.findById(5).get()));
+
+        }};
+        reservationRepository.saveAll(reservations);
+    }
+
+
+
+
+    //h1: Create ActivityBookings for Traing
+    public void createActivityBookingsForTraining() {
+
+        List<ActivityBooking> activityBookings = new ArrayList<>(){{
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(1).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(2).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(3).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(4).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(5).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(6).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(7).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(8).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(9).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(10).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(11).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(12).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(13).get(),
+                    reservationRepository.findById(5).get()));
+            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
+                    5, activityRepository.findById(14).get(),
+                    reservationRepository.findById(5).get()));
+
+        }};
+        activityBookingRepository.saveAll(activityBookings);
+
+    }
+
+
 }
 

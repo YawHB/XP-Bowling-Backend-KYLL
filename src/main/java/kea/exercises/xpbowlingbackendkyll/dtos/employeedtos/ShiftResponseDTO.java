@@ -1,29 +1,24 @@
-package kea.exercises.xpbowlingbackendkyll.model.employee;
+package kea.exercises.xpbowlingbackendkyll.dtos.employeedtos;
 
-import jakarta.persistence.*;
+import kea.exercises.xpbowlingbackendkyll.model.employee.Employee;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Shift {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ShiftResponseDTO {
+
+    // Request DTO for creating a new shift with less information
     private int id;
     private LocalDate date;
     private int startTime;
     private String placeName;
-    @ManyToOne
     private Employee employee;
 
-    public Shift(LocalDate date, int startTime, String placeName, Employee employee) {
+    public ShiftResponseDTO(LocalDate date, int startTime, String placeName, Employee employee) {
         this.date = date;
         this.startTime = startTime;
         this.placeName = placeName;
