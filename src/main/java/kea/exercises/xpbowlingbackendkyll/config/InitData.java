@@ -355,8 +355,8 @@ List<Activity> activities = new ArrayList<>(){{
    }
 
     public LocalTime showDateWithHour() {
-        LocalTime now = LocalTime.now();
-        return now.withMinute(0).withSecond(0).withNano(0);
+        LocalTime time = LocalTime.of(17, 0);
+        return time.withMinute(0).withSecond(0).withNano(0);
 
 
     }
