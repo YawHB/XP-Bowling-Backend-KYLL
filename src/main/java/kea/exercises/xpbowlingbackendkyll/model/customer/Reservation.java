@@ -18,13 +18,13 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private LocalDate ReservationDate;
+    private LocalDate reservationDate;
     private double totalPrice;
     @ManyToOne
     private Customer customer;
 
     public Reservation(LocalDate reservationDate, double totalPrice, Customer customer) {
-        ReservationDate = reservationDate;
+        this.reservationDate = reservationDate;
         this.totalPrice = totalPrice;
         this.customer = customer;
     }
