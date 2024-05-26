@@ -30,11 +30,9 @@ public class ActivityBookingController {
     @GetMapping("/activitybookings/reservation/reservationdate/{date}")
     public ResponseEntity<List<ActivityBooking>> getBookingsByDate(@PathVariable String date) {
         List<ActivityBooking> bookings = activityBookingService.findByReservationDate(LocalDate.parse(date) );
-        if(bookings.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        } else {
+
             return ResponseEntity.ok(bookings);
-        }
+
     }
 
     @GetMapping("/activityBookings/{id}")
