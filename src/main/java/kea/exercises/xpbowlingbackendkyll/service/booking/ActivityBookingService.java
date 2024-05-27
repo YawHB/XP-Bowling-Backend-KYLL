@@ -4,6 +4,7 @@ import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
 import kea.exercises.xpbowlingbackendkyll.repository.ActivityBookingRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,4 +28,7 @@ public class ActivityBookingService {
         return activityBookingRepository.findById(id);
     }
 
+    public List<ActivityBooking> findByReservationDate(LocalDate date) {
+        return activityBookingRepository.findByReservation_ReservationDate(date);
+    }
 }

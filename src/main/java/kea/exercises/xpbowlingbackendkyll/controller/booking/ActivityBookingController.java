@@ -2,8 +2,10 @@ package kea.exercises.xpbowlingbackendkyll.controller.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
 import kea.exercises.xpbowlingbackendkyll.service.booking.ActivityBookingService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,14 @@ public class ActivityBookingController {
     @GetMapping("/activityBookings")
     public List<ActivityBooking> getAllCustomers() {
         return activityBookingService.findAll();
+    }
+
+    @GetMapping("/activitybookings/reservation/reservationdate/{date}")
+    public ResponseEntity<List<ActivityBooking>> getBookingsByDate(@PathVariable String date) {
+        List<ActivityBooking> bookings = activityBookingService.findByReservationDate(LocalDate.parse(date) );
+
+            return ResponseEntity.ok(bookings);
+
     }
 
     @GetMapping("/activityBookings/{id}")
