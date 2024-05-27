@@ -97,7 +97,7 @@ public void run(String... args) throws Exception {
         createShifts();
         //createTrainingReservations();
         //createActivityBookingsForTraining();
-        TrainingDataData();
+        TrainingData();
 
         System.out.println("Data has been initialized");
 
@@ -507,7 +507,7 @@ List<Activity> activities = new ArrayList<>(){{
 
     //////////////////////////////////////////////
 
-    public void TrainingDataData() {
+    public void TrainingData() {
         List<LocalDate> workdays = findWorkdays(LocalDate.of(2024, 5, 27), LocalDate.of(2024, 6, 30));
         List<Reservation> reservations = createTrainingReservations(workdays);
         createActivityBookingsForTraining(reservations);
