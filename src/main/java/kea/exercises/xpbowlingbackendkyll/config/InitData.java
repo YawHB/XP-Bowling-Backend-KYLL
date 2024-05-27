@@ -21,6 +21,8 @@ import kea.exercises.xpbowlingbackendkyll.repository.employee.ShiftRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import java.time.temporal.TemporalAdjusters;
+
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -96,6 +98,7 @@ public void run(String... args) throws Exception {
         createEmployees();
         createShifts();
         TrainingData();
+        CompetitionData();
         System.out.println("Data has been initialized");
     }
 
@@ -278,7 +281,8 @@ public void run(String... args) throws Exception {
            add(new Customer("Jens Mogensen", "43891254"));
            add(new Customer("Lis Hansen", "54918456"));
            add(new Customer("Karen Jespersen", "21235399"));
-           add(new Customer("Training", "21235399"));
+           add(new Customer("Training", "28929191"));
+           add(new Customer("Competition", "44941254"));
     }};
          customerRepository.saveAll(customers);
 
@@ -461,6 +465,7 @@ List<Activity> activities = new ArrayList<>(){{
         return time.withMinute(0).withSecond(0).withNano(0);
     }
 
+
     //h1: Start of Training Data
     //h1 Create Training Data
     public void TrainingData() {
@@ -524,6 +529,72 @@ List<Activity> activities = new ArrayList<>(){{
         }
     }
 
+
+    //h1: Start of Competition Data
+    //h1 Create Competition Data
+    public void CompetitionData() {
+        List<LocalDate> competitionDays = findCompetitionDays(LocalDate.of(2024, 5, 27), LocalDate.of(2024, 6, 30));
+        List<Reservation> reservations = createCompetitionReservations(competitionDays);
+        createActivityBookingsForCompetition(reservations);
+    }
+
+    //h1: Find competition days
+    public List<LocalDate> findCompetitionDays(LocalDate start, LocalDate end) {
+        List<LocalDate> competitionDays = new ArrayList<>();
+        LocalDate current = start;
+
+        while (!current.isAfter(end)) {
+            DayOfWeek dayOfWeek = current.getDayOfWeek();
+            if (dayOfWeek == DayOfWeek.SUNDAY) {
+                competitionDays.add(current);
+                if (competitionDays.size() % 3 == 0) {
+                    current = current.with(TemporalAdjusters.firstDayOfNextMonth());
+                }
+            }
+            current = current.plusDays(1);
+        }
+        return competitionDays;
+    }
+
+    //h1: Create Competition Reservations
+    public List<Reservation> createCompetitionReservations(List<LocalDate> competitionDays) {
+        List<Reservation> reservations = new ArrayList<>();
+
+        for (LocalDate competitionDay : competitionDays) {
+            Optional<Customer> customerOptional = customerRepository.findById(6);
+            if (customerOptional.isPresent()) {
+                Reservation reservation = new Reservation(competitionDay, 0, customerOptional.get());
+                reservations.add(reservation);
+            }
+        }
+
+        reservationRepository.saveAll(reservations);
+        return reservations;
+    }
+
+    //h1: Create ActivityBookings for Competition
+    public void createActivityBookingsForCompetition(List<Reservation> reservations) {
+        int activityIdStart = 1;
+        int totalActivities = 24;
+
+        for (Reservation reservation : reservations) {
+            List<ActivityBooking> activityBookings = new ArrayList<>();
+            for (int i = 0; i < totalActivities; i++) {
+                Optional<Activity> activityOptional = activityRepository.findById(activityIdStart + i);
+                if (activityOptional.isPresent()) {
+                    ActivityBooking activityBooking = new ActivityBooking(
+                            LocalTime.of(10, 0),
+                            LocalTime.of(22, 0),
+                            6,
+                            activityOptional.get(),
+                            reservation
+                    );
+                    activityBookings.add(activityBooking);
+                }
+            }
+            activityBookingRepository.saveAll(activityBookings);
+        }
+    }
 
 }
 
