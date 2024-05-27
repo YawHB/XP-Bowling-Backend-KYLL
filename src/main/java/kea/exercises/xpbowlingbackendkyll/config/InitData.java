@@ -22,11 +22,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Component
 @Order(1) // This CommandLineRunner will run first
 public class InitData implements CommandLineRunner {
@@ -92,8 +95,9 @@ public void run(String... args) throws Exception {
         createEmployeeTypes();
         createEmployees();
         createShifts();
-        createTrainingReservations();
-        createActivityBookingsForTraining();
+        //createTrainingReservations();
+        //createActivityBookingsForTraining();
+        TrainingDataData();
 
         System.out.println("Data has been initialized");
 
@@ -242,7 +246,7 @@ public void run(String... args) throws Exception {
 
         orderItemRepository.saveAll(orderItems);
 
-    };
+    }
 
 
 
@@ -435,12 +439,13 @@ List<Activity> activities = new ArrayList<>(){{
 
     }
 
+
+/*
     ///////////
     //h1 Create training reservations
     public void createTrainingReservations() {
         List<Reservation> reservations = new ArrayList<>(){{
             add(new Reservation(LocalDate.of(2024, 5, 27), 0, customerRepository.findById(5).get()));
-
         }};
         reservationRepository.saveAll(reservations);
     }
@@ -498,6 +503,70 @@ List<Activity> activities = new ArrayList<>(){{
         }};
         activityBookingRepository.saveAll(activityBookings);
 
+    }  */
+
+    //////////////////////////////////////////////
+
+    public void TrainingDataData() {
+        List<LocalDate> workdays = findWorkdays(LocalDate.of(2024, 5, 27), LocalDate.of(2024, 6, 30));
+        List<Reservation> reservations = createTrainingReservations(workdays);
+        createActivityBookingsForTraining(reservations);
+    }
+
+    public List<LocalDate> findWorkdays(LocalDate start, LocalDate end) {
+        List<LocalDate> workdays = new ArrayList<>();
+        LocalDate current = start;
+
+        while (!current.isAfter(end)) {
+            DayOfWeek dayOfWeek = current.getDayOfWeek();
+            if (dayOfWeek != DayOfWeek.SATURDAY && dayOfWeek != DayOfWeek.SUNDAY) {
+                workdays.add(current);
+            }
+            current = current.plusDays(1);
+        }
+        return workdays;
+    }
+
+    public List<Reservation> createTrainingReservations(List<LocalDate> workdays) {
+        List<Reservation> reservations = new ArrayList<>();
+
+        for (LocalDate workday : workdays) {
+            Optional<Customer> customerOptional = customerRepository.findById(5);
+            if (customerOptional.isPresent()) {
+                Reservation reservation = new Reservation(workday, 0, customerOptional.get());
+                reservations.add(reservation);
+            } else {
+                // handle missing customer
+            }
+        }
+
+        reservationRepository.saveAll(reservations);
+        return reservations;
+    }
+
+    public void createActivityBookingsForTraining(List<Reservation> reservations) {
+        int activityIdStart = 1; // Assuming activity IDs start from 1
+        int totalActivities = 14; // Number of activities per reservation
+
+        for (Reservation reservation : reservations) {
+            List<ActivityBooking> activityBookings = new ArrayList<>();
+            for (int i = 0; i < totalActivities; i++) {
+                Optional<Activity> activityOptional = activityRepository.findById(activityIdStart + i);
+                if (activityOptional.isPresent()) {
+                    ActivityBooking activityBooking = new ActivityBooking(
+                            LocalTime.of(10, 0),
+                            LocalTime.of(17, 0),
+                            5,
+                            activityOptional.get(),
+                            reservation
+                    );
+                    activityBookings.add(activityBooking);
+                } else {
+                    // handle missing activity
+                }
+            }
+            activityBookingRepository.saveAll(activityBookings);
+        }
     }
 
 
