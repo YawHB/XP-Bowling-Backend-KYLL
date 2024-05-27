@@ -95,12 +95,8 @@ public void run(String... args) throws Exception {
         createEmployeeTypes();
         createEmployees();
         createShifts();
-        //createTrainingReservations();
-        //createActivityBookingsForTraining();
         TrainingData();
-
         System.out.println("Data has been initialized");
-
     }
 
 
@@ -381,9 +377,38 @@ List<Activity> activities = new ArrayList<>(){{
             add(new Activity("Bord 18", activityTypeRepository.findById(4).get()));
             add(new Activity("Bord 19", activityTypeRepository.findById(4).get()));
             add(new Activity("Bord 20", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 21", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 22", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 23", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 24", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 25", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 26", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 27", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 28", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 29", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 30", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 31", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 32", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 33", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 34", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 35", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 36", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 37", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 38", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 39", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 40", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 41", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 42", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 43", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 44", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 45", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 46", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 47", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 48", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 49", activityTypeRepository.findById(4).get()));
+            add(new Activity("Bord 50", activityTypeRepository.findById(4).get()));
         }};
         activityRepository.saveAll(activities);
-
         }
 
      //h1: Create ActivityBookings
@@ -429,90 +454,22 @@ List<Activity> activities = new ArrayList<>(){{
                      reservationRepository.findById(4).get()));
          }};
             activityBookingRepository.saveAll(activityBookings);
-
    }
 
     public LocalTime showDateWithHour() {
         LocalTime time = LocalTime.of(17, 0);
         return time.withMinute(0).withSecond(0).withNano(0);
-
-
     }
 
-
-/*
-    ///////////
-    //h1 Create training reservations
-    public void createTrainingReservations() {
-        List<Reservation> reservations = new ArrayList<>(){{
-            add(new Reservation(LocalDate.of(2024, 5, 27), 0, customerRepository.findById(5).get()));
-        }};
-        reservationRepository.saveAll(reservations);
-    }
-
-
-
-
-    //h1: Create ActivityBookings for Traing
-    public void createActivityBookingsForTraining() {
-
-        List<ActivityBooking> activityBookings = new ArrayList<>(){{
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(1).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(2).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(3).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(4).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(5).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(6).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(7).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(8).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(9).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(10).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(11).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(12).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(13).get(),
-                    reservationRepository.findById(5).get()));
-            add(new ActivityBooking( LocalTime.of(10, 0), LocalTime.of(17, 0),
-                    5, activityRepository.findById(14).get(),
-                    reservationRepository.findById(5).get()));
-
-        }};
-        activityBookingRepository.saveAll(activityBookings);
-
-    }  */
-
-    //////////////////////////////////////////////
-
+    //h1: Start of Training Data
+    //h1 Create Training Data
     public void TrainingData() {
         List<LocalDate> workdays = findWorkdays(LocalDate.of(2024, 5, 27), LocalDate.of(2024, 6, 30));
         List<Reservation> reservations = createTrainingReservations(workdays);
         createActivityBookingsForTraining(reservations);
     }
 
+    //h1: Find workdays
     public List<LocalDate> findWorkdays(LocalDate start, LocalDate end) {
         List<LocalDate> workdays = new ArrayList<>();
         LocalDate current = start;
@@ -527,6 +484,7 @@ List<Activity> activities = new ArrayList<>(){{
         return workdays;
     }
 
+    //h1: Create Training Reservations
     public List<Reservation> createTrainingReservations(List<LocalDate> workdays) {
         List<Reservation> reservations = new ArrayList<>();
 
@@ -535,8 +493,6 @@ List<Activity> activities = new ArrayList<>(){{
             if (customerOptional.isPresent()) {
                 Reservation reservation = new Reservation(workday, 0, customerOptional.get());
                 reservations.add(reservation);
-            } else {
-                // handle missing customer
             }
         }
 
@@ -544,9 +500,10 @@ List<Activity> activities = new ArrayList<>(){{
         return reservations;
     }
 
+    //h1: Create ActivityBookings for Training
     public void createActivityBookingsForTraining(List<Reservation> reservations) {
-        int activityIdStart = 1; // Assuming activity IDs start from 1
-        int totalActivities = 14; // Number of activities per reservation
+        int activityIdStart = 1;
+        int totalActivities = 14;
 
         for (Reservation reservation : reservations) {
             List<ActivityBooking> activityBookings = new ArrayList<>();
@@ -556,13 +513,11 @@ List<Activity> activities = new ArrayList<>(){{
                     ActivityBooking activityBooking = new ActivityBooking(
                             LocalTime.of(10, 0),
                             LocalTime.of(17, 0),
-                            5,
+                            6,
                             activityOptional.get(),
                             reservation
                     );
                     activityBookings.add(activityBooking);
-                } else {
-                    // handle missing activity
                 }
             }
             activityBookingRepository.saveAll(activityBookings);
