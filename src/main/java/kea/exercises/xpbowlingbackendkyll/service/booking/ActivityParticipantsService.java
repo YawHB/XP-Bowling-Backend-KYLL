@@ -1,7 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.service.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityParticipants;
-import kea.exercises.xpbowlingbackendkyll.repository.ActivityParticipantsRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.booking.ActivityParticipantsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

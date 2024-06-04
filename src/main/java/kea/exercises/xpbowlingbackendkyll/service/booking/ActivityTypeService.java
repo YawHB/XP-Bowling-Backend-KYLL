@@ -1,7 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.service.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityType;
-import kea.exercises.xpbowlingbackendkyll.repository.ActivityTypeRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.booking.ActivityTypeRepository;
 import org.springframework.stereotype.Service;
 
 

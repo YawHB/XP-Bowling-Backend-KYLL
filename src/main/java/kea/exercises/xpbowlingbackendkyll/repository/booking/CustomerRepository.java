@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.repository;
+package kea.exercises.xpbowlingbackendkyll.repository.booking;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import kea.exercises.xpbowlingbackendkyll.model.customer.Customer;

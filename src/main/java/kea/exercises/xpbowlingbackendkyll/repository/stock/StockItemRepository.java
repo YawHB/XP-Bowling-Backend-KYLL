@@ -1,4 +1,4 @@
-package kea.exercises.xpbowlingbackendkyll.repository;
+package kea.exercises.xpbowlingbackendkyll.repository.stock;
 
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
 import org.springframework.data.jpa.repository.JpaRepository;

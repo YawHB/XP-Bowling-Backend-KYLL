@@ -1,7 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.service.booking;
 
 import kea.exercises.xpbowlingbackendkyll.model.activity.ActivityBooking;
-import kea.exercises.xpbowlingbackendkyll.repository.ActivityBookingRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.booking.ActivityBookingRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

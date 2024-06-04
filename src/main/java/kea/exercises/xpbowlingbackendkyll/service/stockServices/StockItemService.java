@@ -1,7 +1,7 @@
 package kea.exercises.xpbowlingbackendkyll.service.stockServices;
 
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
-import kea.exercises.xpbowlingbackendkyll.repository.StockItemRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.stock.StockItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

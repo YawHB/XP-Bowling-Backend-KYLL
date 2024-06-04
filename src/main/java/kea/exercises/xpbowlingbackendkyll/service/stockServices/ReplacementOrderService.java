@@ -7,9 +7,9 @@ import kea.exercises.xpbowlingbackendkyll.dtos.stockdtos.ReplacementOrderRespons
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
-import kea.exercises.xpbowlingbackendkyll.repository.OrderItemRepository;
-import kea.exercises.xpbowlingbackendkyll.repository.ReplacementOrderRepository;
-import kea.exercises.xpbowlingbackendkyll.repository.StockItemRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.stock.OrderItemRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.stock.ReplacementOrderRepository;
+import kea.exercises.xpbowlingbackendkyll.repository.stock.StockItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
