@@ -34,7 +34,9 @@ public class ReplacementOrderController {
         public ResponseEntity<ReplacementOrderResponseDTO> addReplacementOrder(@RequestBody ReplacementOrderRequestDTO replacementOrderRequestDTO) {
             System.out.println(replacementOrderRequestDTO);
             System.out.println("we are in the controller now");
-            return ResponseEntity.status(HttpStatus.CREATED).body(replacementOrderService.createReplacementOrder(replacementOrderRequestDTO));
+            var replacementOrder = replacementOrderService.createReplacementOrder(replacementOrderRequestDTO);
+            System.out.println(replacementOrder);
+            return ResponseEntity.status(HttpStatus.CREATED).body(replacementOrder);
 
         }
 
