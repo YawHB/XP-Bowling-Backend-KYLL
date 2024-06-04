@@ -1,7 +1,6 @@
-package com.example.demo;
+package kea.exercises.xpbowlingbackendkyll.controller.stock;
 
 
-import kea.exercises.xpbowlingbackendkyll.controller.stock.OrderItemController;
 import kea.exercises.xpbowlingbackendkyll.model.stock.OrderItem;
 import kea.exercises.xpbowlingbackendkyll.model.stock.ReplacementOrder;
 import kea.exercises.xpbowlingbackendkyll.model.stock.StockItem;
@@ -21,8 +20,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class OrderItemControllerTest {
 
