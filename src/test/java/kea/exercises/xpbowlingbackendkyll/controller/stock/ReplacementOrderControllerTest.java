@@ -92,11 +92,5 @@ class ReplacementOrderControllerTest {
                 .andExpect(status().isCreated())
                 .andReturn();
 
-        String response = mvcResult.getResponse().getContentAsString();
-        System.out.println(response);
-
-
-//                .andExpect(jsonPath("$.replacementOrder.title").value("controller test order"))
-//                .andExpect(jsonPath("$.replacementOrder.totalPrice").value(444.0));
     }
 }
