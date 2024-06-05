@@ -57,11 +57,11 @@ public class InitDataSales implements CommandLineRunner {
 
     public void createConsumables() {
         List<Consumable> consumablesToCreate = List.of(
-                new Consumable("Coke", 10),
+                new Consumable("Coca-Cola", 10),
                 new Consumable("Fanta", 15),
                 new Consumable("Sprite", 20),
-                new Consumable("Water", 25),
-                new Consumable("Beer", 30)
+                new Consumable("Vand", 25),
+                new Consumable("Øl", 30)
         );
 
         for (Consumable consumableToCreate : consumablesToCreate) {
